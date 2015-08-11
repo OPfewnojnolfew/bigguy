@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>登录 - 大家伙</title>
+    <title>登录 - 大家伙二手工程机械平台</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
@@ -11,7 +11,7 @@
     <meta name="apple-touch-fullscreen" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="Description" content="大家伙" />
+    <meta name="Description" content="大家伙二手工程机械平台" />
     <meta name="Keywords" content="" />
     <meta name="author" content="渔夫科技-info@yufukeji.com" />
     <meta name="robots" content="index,follow" />
@@ -162,7 +162,7 @@
 
 <body>
     <div class="header">
-        <h1>大家伙网站管理后台</h1>
+        <h1>大家伙二手工程机械平台</h1>
     </div>
     <div class="login-form">
         <form id="credentials" class="lf-form" onsubmit="return false;">
@@ -172,38 +172,14 @@
             <label for="password">密码</label>
             <input type="password" id="password" name="password" class="input" placeholder="请输入密码" accesskey="" />
             <div class="lf-submit">
+                <div style="display:none" class="text-warning"></div>
                 <input type="submit" name="" value="登录" class="btn-login">
             </div>
-            <div class="footer">&copy;&nbsp;众寺联盟&nbsp;&nbsp;&nbsp;&nbsp;全程技术支持：<a href="http://yufukeji.com/" target="_blank">怡宇科技</a></div>
+            <div class="footer">&copy;&nbsp;大家伙二手工程机械平台&nbsp;&nbsp;&nbsp;&nbsp;全程技术支持：<a href="http://yufukeji.com/" target="_blank">怡宇科技</a></div>
         </form>
     </div>
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        var $username = $('#username'),
-            $password = $('#password'),
-            $submit = $('.btn-login');
-        $submit.on('click', function() {
-            var uVal = $.trim($username.val()),
-                pVal = $.trim($password.val());
-            if (uVal === '' || pVal === '') {
-              alert();
-            }
-            $.get('', {
-                username: uVal,
-                password: pVal
-            }).then(function(res) {
-                if (res.code == 200) {
-                    location.href = '';
-                } else {
-
-                }
-            }, function() {
-
-            });
-        });
-    });
-    </script>
+    <script type="text/javascript" src="assets/js/login.js"></script>
 </body>
 
 </html>
