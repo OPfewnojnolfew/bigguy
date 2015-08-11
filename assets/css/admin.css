@@ -268,7 +268,9 @@ ul {
 .table-main button {
   background: #fff;
 }
-
+.table-main .table-btn {
+  background: #fff;
+}
 .table-check {
   width: 30px;
 }

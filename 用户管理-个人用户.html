@@ -55,11 +55,18 @@
                 <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>个人用户</small></div>
             </div>
             <div class="am-g">
-                <div class="am-u-sm-12 am-u-md-3 am-u-md-offset-9">
+                <div class="am-u-md-1">
+                    <div class="am-btn-toolbar">
+                        <div class="am-btn-group am-btn-group-xs">
+                            <button type="button" class="J_multi-del am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="am-u-md-3 am-u-md-offset-8">
                     <div class="am-input-group am-input-group-sm">
-                        <input type="text" class="am-form-field" placeholder="请输入账号搜索">
+                        <input type="text" class="J_param" data-key="name" class="J_search_name am-form-field" placeholder="请输入账号搜索">
                         <span class="am-input-group-btn">
-                            <button class="am-btn am-btn-default" type="button">搜索</button>
+                            <button class="J_search_btn am-btn am-btn-default" type="button">搜索</button>
                         </span>
                     </div>
                 </div>
@@ -72,14 +79,14 @@
                                 <th class="table-check">
                                     <input type="checkbox" />
                                 </th>
-                                <th>经纪人账号</th>
-                                <th>昵称</th>
+                                <th>用户账号</th>
+                                <th>称呼</th>
                                 <th class="am-hide-sm-only">注册时间</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-id="">
+                            <tr data-id="1">
                                 <td>
                                     <input type="checkbox" />
                                 </td>
@@ -120,7 +127,7 @@
         <div class="am-modal-dialog">
             <div class="am-modal-hd">个人用户</div>
             <div class="am-modal-bd">
-                你，确定要删除这条记录吗？
+                确定要删除这条记录吗？
             </div>
             <div class="am-modal-footer">
                 <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -132,6 +139,9 @@
         <hr>
         <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
     </footer>
+    <input type="hidden" class="J_param" data-key="pageIndex" value="0" />
+    <input type="hidden" class="J_param" data-key="pageSize" value="20" />
+    <input type="hidden" class="J_param" data-key="type" value="1" />
     <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
