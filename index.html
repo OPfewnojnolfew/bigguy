@@ -15,6 +15,7 @@
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
 <body>
@@ -115,6 +116,18 @@
         <!-- content end -->
     </div>
     <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+    <div class="J_confirm am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">个人用户</div>
+            <div class="am-modal-bd">
+                你，确定要删除这条记录吗？
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            </div>
+        </div>
+    </div>
     <footer>
         <hr>
         <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
@@ -129,6 +142,7 @@
     <!--<![endif]-->
     <script src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/user.js"></script>
 </body>
 
 </html>
