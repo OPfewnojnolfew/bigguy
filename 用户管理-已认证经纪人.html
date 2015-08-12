@@ -84,9 +84,13 @@
                                 <th class="table-check">
                                     <input type="checkbox" />
                                 </th>
-                                <th>用户账号</th>
-                                <th>称呼</th>
-                                <th class="am-hide-sm-only">注册时间</th>
+                                <th>经纪人账号</th>
+                                <th>经纪人姓名</th>
+                                <th>状态</th>
+                                <th>提供车源</th>
+                                <th>帮买</th>
+                                <th>出售</th>
+                                <th class="am-hide-sm-only">认证时间</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
@@ -96,42 +100,24 @@
                                     <input type="checkbox" />
                                 </td>
                                 <td>111111</td>
-                                <td><a href="#">ACE</a></td>
-                                <td class="am-hide-sm-only">2014-12-12</td>
-                                <td class="J_operate">
-                                    <div class="am-btn-toolbar">
-                                        <div class="am-btn-group am-btn-group-xs">
-                                            <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr data-id="1">
                                 <td>
-                                    <input type="checkbox" />
+                                    <strong>ACE</strong>
                                 </td>
-                                <td>111111</td>
-                                <td><a href="#">ACE</a></td>
+                                <td class="J_status">
+                                    <span class="am-badge am-badge-success">启用</span>
+                                    <!-- <span class="am-badge am-badge-danger">禁用</span> -->
+                                </td>
+                                <td><a href="#" class="am-text-warning">11</a></td>
+                                <td><a href="#" class="am-text-warning">22</a></td>
+                                <td><a href="#" class="am-text-warning">33</a></td>
                                 <td class="am-hide-sm-only">2014-12-12</td>
                                 <td class="J_operate">
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
+                                            <button class="J_single_startusing am-btn am-btn-default am-btn-xs am-text-success"><span class="am-icon-circle-o"></span> 启用</button>
+                                            <button class="J_single_ban am-btn am-btn-default am-btn-xs am-text-warning"><span class="am-icon-ban"></span> 禁用</button>
                                             <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr data-id="1">
-                                <td>
-                                    <input type="checkbox" />
-                                </td>
-                                <td>111111</td>
-                                <td><a href="#">ACE</a></td>
-                                <td class="am-hide-sm-only">2014-12-12</td>
-                                <td class="J_operate">
-                                    <div class="am-btn-toolbar">
-                                        <div class="am-btn-group am-btn-group-xs">
-                                            <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
+                                            <button class="J_detail am-btn am-btn-default am-btn-xs"><span class="am-icon-list"></span> 详情</button>
                                         </div>
                                     </div>
                                 </td>
@@ -158,9 +144,9 @@
         <!-- content end -->
     </div>
     <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
-    <div class="J_confirm am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+    <div class="J_confirm am-modal am-modal-confirm" tabindex="-1">
         <div class="am-modal-dialog">
-            <div class="am-modal-hd">个人用户</div>
+            <div class="am-modal-hd">已认证经纪人</div>
             <div class="am-modal-bd">
                 确定要删除这条记录吗？
             </div>
