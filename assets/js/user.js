@@ -94,11 +94,11 @@ $(function() {
      * @param  {[type]} 
      * @return {[type]}   [description]
      */
-    $params.each(function() {
-        var $this = $(this),
-            key = $(this).attr('name');
-        key && $this.val(Toolkit.getParameterByName(key));
-    });
+    // $params.each(function() {
+    //     var $this = $(this),
+    //         key = $(this).attr('name');
+    //     key && $this.val(Toolkit.getParameterByName(key));
+    // });
     /**
      * 单条删除
      * @param  {[type]} 
@@ -246,4 +246,57 @@ $(function() {
             $this.siblings('.J_single_ban').removeClass('am-hide');
         });
     });
+
+    /************************************用户管理-已认证经纪人-提供车源************************************/
+    var $selectForm = $('.J_select_form'),
+        $year = $('.J_year'),
+        $month = $('.J_month');
+
+    $year.on('change', function() {
+        $selectForm.submit();
+    });
+    $month.on('change', function() {
+        $selectForm.submit();
+    });
+    /************************************用户管理-已认证经纪人-提供车源************************************/
+    $('.J_edit_user').on('click', function() {
+        var $this = $(this),
+            href = $this.attr('data-href'),
+            id = $this.closest('tr').attr('data-id');
+        if (href && id) {
+            location.href = href + '?id=' + id;
+        }
+    });
+    /************************************用户管理-已认证经纪人-新增编辑管理员************************************/
+    $('.J_user_submit').on('click', function() {
+        var $username = $('#user-name'),
+            $userPass = $('#user-password'),
+            $usertruename = $('#user-truename'),
+            id = $('#user_id').val(),
+            t = id ? '编辑' : '新增',
+            username = $.trim($username.val()),
+            userPass = $.trim($userPass.val()),
+            usertruename = $.trim($usertruename.val());
+        if (!(/^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$/.test(username) && username.length)) {
+            notify.warn('手机号不符合规定！');
+            $username.focus();
+            return false;
+        }
+        if (!(/^[\w]{6,10}$/.test(userPass))) {
+            notify.warn('密码应为6-10字母数字构成');
+            $userPass.focus();
+            return false;
+        }
+        $('.J_user_form').ajaxSubmit({
+            success: function(res) {
+                if (res.code == 200) {
+                    notify.success(t + '成功');
+                    location.href = '';
+                } else {
+                    notify.warn(t + '失败');
+                }
+            }
+        });
+    });
+
 });

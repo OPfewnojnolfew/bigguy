@@ -54,3 +54,12 @@
     -o-transform: translateY(0);
     transform: translateY(0)
 }
+
+@media only screen and (min-width:641px) {
+    .bb-year-select {
+        width: 88px;
+    }
+    .bb-month-select {
+        width: 66px;
+    }
+}
