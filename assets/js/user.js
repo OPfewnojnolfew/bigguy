@@ -5,13 +5,19 @@ $(function() {
         $confirmModalContent = $('.am-modal-bd', $confirmModal),
         $multiCheckbox = $('th input[type="checkbox"]'), //多选
         $singleCheckbox = $('td input[type="checkbox"]'), //单选
+        /**
+         * 删除用户
+         * @param  {[type]}   ids      [description]
+         * @param  {Function} callback [description]
+         * @return {[type]}            [description]
+         */
         delUsers = function(ids, callback) {
             if (!ids) {
                 notify.warn('未选择任何项');
                 return;
             }
             $confirmModalContent.text('确定删除选中的用户吗?');
-            $confirmModal.modal({
+            $('.J_confirm').modal({
                 onConfirm: function(options) {
                     $.post('', {
                         ids: ids
@@ -27,15 +33,19 @@ $(function() {
                 onCancel: function() {}
             });
         },
+        /**
+         * 禁用用户
+         * @param  {[type]}   ids      [description]
+         * @param  {Function} callback [description]
+         * @return {[type]}            [description]
+         */
         banUsers = function(ids, callback) {
             if (!ids) {
                 notify.warn('未选择任何项');
                 return;
             }
-            callback && callback();
-            return
             $confirmModalContent.text('确定禁用选中的用户吗?');
-            $confirmModal.modal({
+            $('.J_confirm').modal({
                 onConfirm: function(options) {
                     $.post('', {
                         ids: ids
@@ -51,15 +61,19 @@ $(function() {
                 onCancel: function() {}
             });
         },
+        /**
+         * 启用用户
+         * @param  {[type]}   ids      [description]
+         * @param  {Function} callback [description]
+         * @return {[type]}            [description]
+         */
         startusingUsers = function(ids, callback) {
             if (!ids) {
                 notify.warn('未选择任何项');
                 return;
             }
-            callback && callback();
-            return
             $confirmModalContent.text('确定启用选中的用户吗?');
-            $confirmModal.modal({
+            $('.J_confirm').modal({
                 onConfirm: function(options) {
                     $.post('', {
                         ids: ids
@@ -85,52 +99,18 @@ $(function() {
             key = $(this).attr('name');
         key && $this.val(Toolkit.getParameterByName(key));
     });
-    // /**
-    //  * 单条删除
-    //  * @param  {[type]} 
-    //  * @return {[type]}   [description]
-    //  */
-    // $('.J_single_del').on('click', function() {
-    //     var $this = $(this),
-    //         $tr = $this.closest('tr'),
-    //         id = $tr.attr('data-id');
-    //     delUsers(id, function() {
-    //         $tr.remove();
-    //     });
-    // });
-
     /**
-     * 操作
+     * 单条删除
      * @param  {[type]} 
      * @return {[type]}   [description]
      */
-    $('.J_operate').on('click', function(e) {
-        var $target = $(e.target),
-            $tr = $target.closest('tr'),
+    $('.J_single_del').on('click', function() {
+        var $this = $(this),
+            $tr = $this.closest('tr'),
             id = $tr.attr('data-id');
-        if ($target.hasClass('J_single_del') || $target.closest('.J_single_del').length) { //删除
-            delUsers(id, function() {
-                $tr.remove();
-            });
-        } else if ($target.hasClass('J_single_ban') || $target.closest('.J_single_ban').length) { //禁用
-            banUsers(id, function() {
-                $('.J_status', $tr).html('<span class="am-badge am-badge-danger">禁用</span>');
-            });
-        } else if ($target.hasClass('J_single_startusing') || $target.closest('.J_single_startusing').length) { //启用
-            startusingUsers(id, function() {
-                $('.J_status', $tr).html('<span class="am-badge am-badge-success">启用</span>');
-            });
-        } else if ($target.hasClass('J_archive') || $target.closest('.J_archive').length) { //审核
-            var hrefa = $target.attr('data-href');
-            if (hrefa && id) {
-                location.href = hrefa + '?id=' + id;
-            }
-        } else if ($target.hasClass('J_detail') || $target.closest('.J_detail').length) { //详情
-            var hrefd = $target.attr('data-href');
-            if (hrefd && id) {
-                location.href = hrefd + '?id=' + id;
-            }
-        }
+        delUsers(id, function() {
+            $tr.remove();
+        });
     });
     /**
      * 批量删除
@@ -189,14 +169,14 @@ $(function() {
      * @param  {[type]} 
      * @return {[type]}   [description]
      */
-    // $('.J_archive').on('click', function() {
-    //     var $this = $(this),
-    //         href = $this.attr('data-href'),
-    //         id = $this.closest('tr').attr('data-id');
-    //     if (href && id) {
-    //         location.href = href + '?id=' + id;
-    //     }
-    // });
+    $('.J_archive').on('click', function() {
+        var $this = $(this),
+            href = $this.attr('data-href'),
+            id = $this.closest('tr').attr('data-id');
+        if (href && id) {
+            location.href = href + '?id=' + id;
+        }
+    });
     /************************************用户管理-审核经纪人************************************/
     //审核类型  PASS通过，NOPASS不通过
     var AUDITTYPE = {
@@ -240,4 +220,30 @@ $(function() {
         });
     });
     /************************************用户管理-已认证经纪人************************************/
+
+    /**
+     * 单条禁用
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $('.J_single_ban').on('click', function() {
+        var $this = $(this),
+            $tr = $this.closest('tr'),
+            id = $tr.attr('data-id');
+        banUsers(id, function() {
+            $('.J_status', $tr).html('<span class="am-badge am-badge-danger">禁用</span>');
+            $this.addClass('am-hide');
+            $this.siblings('.J_single_startusing').removeClass('am-hide');
+        });
+    });
+    $('.J_single_startusing').on('click', function() {
+        var $this = $(this),
+            $tr = $this.closest('tr'),
+            id = $tr.attr('data-id');
+        startusingUsers(id, function() {
+            $('.J_status', $tr).html('<span class="am-badge am-badge-success">启用</span>');
+            $this.addClass('am-hide');
+            $this.siblings('.J_single_ban').removeClass('am-hide');
+        });
+    });
 });
