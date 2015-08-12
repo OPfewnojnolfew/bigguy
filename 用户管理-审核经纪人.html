@@ -52,81 +52,53 @@
         <!-- content start -->
         <div class="admin-content">
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>个人用户</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>审核经纪人</small></div>
             </div>
             <div class="am-g">
-                <div class="am-u-md-6 am-u-sm-3">
-                    <div class="am-btn-toolbar">
-                        <div class="am-btn-group am-btn-group-xs">
-                            <button type="button" class="J_multi-del am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+                <div class="am-u-md-12">
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right">经纪人账号:</div>
+                        <div class="am-u-sm-8 am-u-md-10">1111</div>
+                    </div>
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right">经纪人头像:</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <img src="" width="80" height="80" class="am-circle">
                         </div>
                     </div>
-                </div>
-                <div class="am-u-md-3 am-u-sm-7">
-                    <form class="am-form" method="get" action="">
-                        <div class="am-input-group am-input-group-sm">
-                            <input type="hidden" class="J_param" name="pageIndex" value="0" />
-                            <input type="hidden" class="J_param" name="pageSize" value="20" />
-                            <input type="hidden" class="J_param" name="type" value="1" />
-                            <input type="text" name="username" class="J_param J_search_name am-form-field" placeholder="请输入账号搜索">
-                            <span class="am-input-group-btn">
-                            <button class="J_search_btn am-btn am-btn-default" type="submit">搜索</button>
-                        </span>
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right">经纪人姓名:</div>
+                        <div class="am-u-sm-8 am-u-md-10">ACE</div>
+                    </div>
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right">身份证号:</div>
+                        <div class="am-u-sm-8 am-u-md-10">111111111111111111</div>
+                    </div>
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right">身份证照:</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <img src="" width="250" height="170" class="am-radius am-margin-right">
+                            <img src="" width="250" height="170" class="am-radius">
                         </div>
-                    </form>
-                </div>
-            </div>
-            <div class="am-g">
-                <div class="am-u-sm-12">
-                    <table class="am-table am-table-striped am-table-hover table-main">
-                        <thead>
-                            <tr>
-                                <th class="table-check">
-                                    <input type="checkbox" />
-                                </th>
-                                <th>经纪人账号</th>
-                                <th>经纪人姓名</th>
-                                <th class="am-hide-sm-only">申请时间</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-id="1">
-                                <td>
-                                    <input type="checkbox" />
-                                </td>
-                                <td>111111</td>
-                                <td><a href="#">ACE</a></td>
-                                <td class="am-hide-sm-only">2014-12-12</td>
-                                <td>
-                                    <div class="am-btn-toolbar">
-                                        <div class="am-btn-group am-btn-group-xs">
-                                            <button data-href="用户管理-审核经纪人.html" class="J_archive am-btn am-btn-default am-btn-xs am-text-success"><span class="am-icon-archive"></span> 审核</button>
-                                            <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="am-cf">
-                        共 15 条记录
-                        <div class="am-fr">
-                            <ul class="am-pagination">
-                                <li class="am-disabled"><a href="#">«</a></li>
-                                <li class="am-active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">»</a></li>
-                            </ul>
-                        </div>
+                    </div>
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right">名片照片:</div>
+                        <div class="am-u-sm-8 am-u-md-10"><img src="" width="250" height="170" class="am-radius"></div>
+                    </div>
+                    <div class="am-panel am-panel-default am-padding-lg am-margin-top">
+                        <form class="am-form am-form-horizontal" onsubmit="return false;">
+                            <textarea class="J_reason" rows="3" placeholder="不合格时，请在此处说明原因"></textarea>
+                            <div class="am-text-center am-margin-top">
+                                <button type="button" class="J_pass am-btn am-btn-success am-radius"><i class="am-icon-check"></i> 合格</button>
+                                <button type="button" class="J_nopass am-btn am-btn-warning am-radius"><i class="am-icon-close"></i> 不合格</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- content end -->
+    </div>
+    <!-- content end -->
     </div>
     <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
     <div class="J_confirm am-modal am-modal-confirm" tabindex="-1" id="my-confirm">

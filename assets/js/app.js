@@ -541,4 +541,10 @@
             }
         };
     });
+    $.ajaxSetup({
+        cache: false
+    });
+    $(document).ajaxError(function(event, jqXHR, settings, thrownError) {
+        notify.warn('请求异常，请重试!');
+    });
 })(jQuery);

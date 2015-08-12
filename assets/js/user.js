@@ -18,8 +18,6 @@ $(function() {
                         } else {
                             notify.warn(res.message);
                         }
-                    }, function() {
-                        notify.warn('请求异常，请重试!');
                     });
                 },
                 onCancel: function() {}
@@ -99,6 +97,7 @@ $(function() {
         });
         $multiCheckbox[0].checked = isAllchecked;
     });
+    /************************************用户管理-待审核经纪人************************************/
     /**
      * 验证
      * @param  {[type]} 
@@ -111,5 +110,47 @@ $(function() {
         if (href && id) {
             location.href = href + '?id=' + id;
         }
+    });
+    /************************************用户管理-审核经纪人************************************/
+    //审核类型  PASS通过，NOPASS不通过
+    var AUDITTYPE = {
+        PASS: 1,
+        NOPASS: 0
+    };
+    /**
+     * 审核合格
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $('.J_pass').on('click', function() {
+        $.post('', {
+            type: AUDITTYPE.PASS
+        }).then(function(res) {
+            if (res == 200) {
+                notify.success('审核成功');
+                location.href = '';
+            } else {
+                notify.success('审核出错');
+            }
+        });
+    });
+    /**
+     * 审核不合格
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $('.J_nopass').on('click', function() {
+        var reasonText = $('.J_reason').val();
+        $.post('', {
+            type: AUDITTYPE.NOPASS,
+            reason: reasonText
+        }).then(function() {
+            if (res == 200) {
+                notify.success('审核成功');
+                location.href = '';
+            } else {
+                notify.success('审核出错');
+            }
+        });
     });
 });
