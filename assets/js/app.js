@@ -45,7 +45,24 @@
             }, {
                 name: '第二页',
                 href: '#',
-                iconClass: ''
+                iconClass: '',
+                children: [{
+                    name: '个人用户',
+                    href: '#',
+                    iconClass: '',
+                }, {
+                    name: '未认证经纪人',
+                    href: '#',
+                    iconClass: '',
+                }, {
+                    name: '待审核经纪人',
+                    href: '#',
+                    iconClass: '',
+                }, {
+                    name: '已认证经纪人',
+                    href: '#',
+                    iconClass: '',
+                }]
             }];
             var i = 0,
                 item,
@@ -397,5 +414,131 @@
                 addnCls: 'notify-success'
             });
         })();
+        window.Toolkit = {
+            // 纵向滚动到指定位置
+            scrollTween: function(y, callback) {
+                jQuery('html,body').animate({
+                    scrollTop: (y || 0)
+                }, 500, 'easeOutExpo', function() {
+                    return callback && callback();
+                });
+            },
+
+            // 取消选中的文本
+            clearSelect: function() {
+                if (document.selection && document.selection.empty) {
+                    document.selection.empty();
+                } else if (window.getSelection) {
+                    window.getSelection().removeAllRanges();
+                }
+            },
+
+            // 计算字符串的字节长度
+            countByte: function(str) {
+                var size = 0;
+                for (var i = 0, l = str.length; i < l; i++) {
+                    size += str.charCodeAt(i) > 255 ? 2 : 1;
+                }
+
+                return size;
+            },
+
+            // 根据字节截取长度
+            substrByByte: function(str, limit) {
+                for (var i = 1, l = str.length + 1; i < l; i++) {
+                    if (this.countByte(str.substring(0, i)) > limit) {
+                        return str.substring(0, i - 1);
+                    }
+                }
+
+                return str;
+            },
+
+            paramOfUrl: function(url) {
+                url = url || location.href;
+                var paramSuit = url.substring(url.indexOf('?') + 1).split("&");
+                var paramObj = {};
+                for (var i = 0; i < paramSuit.length; i++) {
+                    var param = paramSuit[i].split('=');
+                    if (param.length == 2) {
+                        var key = decodeURIComponent(param[0]),
+                            val = decodeURIComponent(param[1]);
+                        if (paramObj.hasOwnProperty(key)) {
+                            paramObj[key] = jQuery.makeArray(paramObj[key]);
+                            paramObj[key].push(val);
+                        } else {
+                            paramObj[key] = val;
+                        }
+                    }
+                }
+                return paramObj;
+            },
+            getCurDate: function() {
+                var date = new Date();
+                return date.getFullYear() + '-' + this.formatLenth(date.getMonth() + 1) + '-' + this.formatLenth(date.getDate())
+            },
+
+            parseDate: function(str) {
+                var list = str.split(/[-:\s]/),
+                    date = new Date();
+                date.setFullYear(list[0]);
+                date.setDate(1); //设置每月都有的day
+                date.setMonth(list[1].toInt() - 1);
+                date.setDate(list[2].toInt());
+                date.setHours(list[3].toInt());
+                date.setMinutes(list[4].toInt());
+                date.setSeconds(list[5].toInt());
+
+                return date;
+            },
+
+            formatDate: function(date) {
+                if (typeOf(date) !== 'date') {
+                    date = this.parseDate(date);
+                }
+                return date.getFullYear() + '-' + this.formatLenth(date.getMonth() + 1) + '-' + this.formatLenth(date.getDate()) + ' ' + this.formatLenth(date.getHours()) + ':' + this.formatLenth(date.getMinutes()) + ':' + this.formatLenth(date.getSeconds());
+            },
+
+            str2mills: function(str) {
+                return this.parseDate(str).getTime();
+            },
+
+            mills2str: function(num) {
+                var date = new Date(num);
+                return date.getFullYear() + '-' + this.formatLenth(date.getMonth() + 1) + '-' + this.formatLenth(date.getDate());
+            },
+
+            formatLenth: function(x, len) {
+                x = '' + x;
+                len = len || 2;
+                while (x.length < len) {
+                    x = '0' + x;
+                }
+                return x;
+            },
+
+            stopPropagation: function(e) {
+                e.stopPropagation();
+            },
+
+            loadTempl: function(url, force) {
+                this.templHash = this.templHash || new Hash();
+
+                if (this.templHash.has(url) && !force) {
+                    return this.templHash.get(url);
+                }
+
+                var self = this;
+                return jQuery.get(url, function(templ) {
+                    self.templHash.set(url, templ);
+                });
+            },
+            getParameterByName: function(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+        };
     });
 })(jQuery);

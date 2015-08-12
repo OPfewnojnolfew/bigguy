@@ -55,20 +55,25 @@
                 <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>个人用户</small></div>
             </div>
             <div class="am-g">
-                <div class="am-u-md-1">
+                <div class="am-u-md-6 am-u-sm-3">
                     <div class="am-btn-toolbar">
                         <div class="am-btn-group am-btn-group-xs">
                             <button type="button" class="J_multi-del am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
                         </div>
                     </div>
                 </div>
-                <div class="am-u-md-3 am-u-md-offset-8">
-                    <div class="am-input-group am-input-group-sm">
-                        <input type="text" class="am-form-field" placeholder="请输入账号搜索">
-                        <span class="am-input-group-btn">
-                            <button class="am-btn am-btn-default" type="button">搜索</button>
+                <div class="am-u-md-3 am-u-sm-7">
+                    <form class="am-form" method="get" action="">
+                        <div class="am-input-group am-input-group-sm">
+                            <input type="hidden" class="J_param" name="pageIndex" value="0" />
+                            <input type="hidden" class="J_param" name="pageSize" value="20" />
+                            <input type="hidden" class="J_param" name="type" value="1" />
+                            <input type="text" name="username" class="J_param J_search_name am-form-field" placeholder="请输入账号搜索">
+                            <span class="am-input-group-btn">
+                            <button class="J_search_btn am-btn am-btn-default" type="submit">搜索</button>
                         </span>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="am-g">
@@ -140,9 +145,6 @@
         <hr>
         <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
     </footer>
-    <input type="hidden" class="J_param" data-key="pageIndex" value="0" />
-    <input type="hidden" class="J_param" data-key="pageSize" value="20" />
-    <input type="hidden" class="J_param" data-key="type" value="1" />
     <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>

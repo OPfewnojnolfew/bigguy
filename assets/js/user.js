@@ -1,6 +1,7 @@
 $(function() {
-    var $multiCheckbox = $('th input[type="checkbox"]'),
-        $singleCheckbox = $('td input[type="checkbox"]'),
+    var $params = $('.J_param'), //参数 data-key value
+        $multiCheckbox = $('th input[type="checkbox"]'), //多选
+        $singleCheckbox = $('td input[type="checkbox"]'), //单选
         delUsers = function(ids, callback) {
             if (!ids) {
                 notify.warn('未选择任何项');
@@ -24,6 +25,16 @@ $(function() {
                 onCancel: function() {}
             });
         };
+    /**
+     * 初始化参数
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $params.each(function() {
+        var $this = $(this),
+            key = $(this).attr('name');
+        key && $this.val(Toolkit.getParameterByName(key));
+    });
     /**
      * 单条删除
      * @param  {[type]} 
@@ -51,33 +62,33 @@ $(function() {
             location.href = location.href;
         });
     });
-    $('.J_search_btn').on('click', function() {
-        // var $name = $('.J_search_name'),
-        //     param = {},
-        //     name = $.trim($name.val());
-        // if (name === '') {
-        //     notify.warn('请输入要搜索的名称');
-        //     $name.focus();
-        //     return;
-        // }
-        // param[$name.attr('data-key')] = name;
-        var params = [];
-        var $params = $('.J_param');
-        $param.each(function() {
-            var $this = $(this);
-            params.push($this.attr('data-key') + '=' + $this.val());
-            // params[$this.attr('data-key')] = $this.val();
-        });
-        params = '?' + params.join('&');
-        location.href = location.href + params;
+    // $('.J_search_btn').on('click', function() {
+    //     var params = [];
+    //     $params.each(function() {
+    //         var $this = $(this);
+    //         params.push($this.attr('data-key') + '=' + $this.val());
+    //     });
+    //     params = '?' + params.join('&');
+    //     location.href = location.href + params;
 
-    });
+    // });
+
+    /**
+     * 全选
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $multiCheckbox.on('change', function() {
         var mulitdom = this;
         $singleCheckbox.each(function() {
             this.checked = mulitdom.checked;
         });
     });
+    /**
+     * 单选
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $singleCheckbox.on('change', function() {
         var isAllchecked = true;
         $singleCheckbox.each(function() {
@@ -88,6 +99,11 @@ $(function() {
         });
         $multiCheckbox[0].checked = isAllchecked;
     });
+    /**
+     * 验证
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_archive').on('click', function() {
         var $this = $(this),
             href = $this.attr('data-href'),
