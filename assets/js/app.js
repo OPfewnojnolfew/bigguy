@@ -541,7 +541,139 @@
             }
         };
     });
+    /**
+     *图片上传
+     * @return {[type]} [description]
+     */
+    (function() {
+        var defaultOptions = {
+            buttonClass: '',
+            width: 120,
+            height: 32,
+            previewWidth: 100,
+            previewHeight: 100,
+            buttonText: '上传图片',
+            fileFormat: '*.gif; *.jpg; *.png; *.jpeg;',
+            uploadLimit: 999,
+            sizeLimit: '5MB',
+            multi: false,
+            removeTimeout: 0,
+            swf: 'assets/js/uploadify/uploadify.swf',
+            uploader: '',
+            queueID: '01234556789',
+            uploaderFormat: {
+                imageId: 'id',
+                imagePath: 'src'
+            }
 
+        };
+        var UPLOADSTATUS = {
+            'UPLOADED': 0,
+            'UPLOADING': 1
+        };
+        var IMAGEID = 'imageupload_',
+            IMAGEINDEX = 1;
+        var ImageUploadify = function(container, options) {
+            this.$container = $(container);
+            this.options = $.extend({}, defaultOptions, options);
+            this.uploaderFormat = $.extend({}, defaultOptions.uploaderFormat, options && options.uploaderFormat);
+            this.uploadStatus = UPLOADSTATUS.UPLOADED;
+            this._init();
+        };
+        ImageUploadify.prototype = {
+            _init: function() {
+                var self = this;
+                ++IMAGEINDEX;
+                var $innerHtml = $('<div><input type="file" id="' + IMAGEID + IMAGEINDEX + '" /><div class="image-uploadify-preview"></div></div>'),
+                    $uploadify = this.$uploadify = $('[type="file"]', $innerHtml),
+                    $preview = this.$preview = $('.image-uploadify-preview', $innerHtml);
+                this.$container.html($innerHtml);
+                $preview.on('click', function(e) {
+                    var $target = $(e.target);
+                    if ($target.hasClass('J_close') || $target.closest('.J_close').length) {
+                        self.reset();
+                    }
+                });
+                $uploadify.uploadify({
+                    'buttonClass': this.options.buttonClass,
+                    'width': this.options.width,
+                    'height': this.options.height,
+                    'buttonText': '<i class="am-icon-upload"></i> ' + this.options.buttonText,
+                    'uploadLimit': this.options.uploadLimit,
+                    'fileTypeExts': this.options.fileFormat,
+                    'fileSizeLimit': this.options.sizeLimit,
+                    'swf': this.options.swf,
+                    'uploader': this.options.uploader,
+                    'multi': this.options.multi,
+                    'queueID': this.options.queueID,
+                    'removeTimeout': this.options.removeTimeout,
+                    'onUploadProgress': function(file, bytesUploaded, bytesTotal, totalBytesUploaded, totalBytesTotal) {
+                        var percent = ((bytesUploaded / bytesTotal).toFixed(2) * 100);
+                        $preview.html('<i class="am-icon-spinner icon-spin"></i> 正在上传...' + percent + '%').show();
+                    },
+                    'onUploadStart': function() {
+                        $preview.html('<i class="am-icon-spinner icon-spin"></i> 正在上传...').show();
+                        self.uploadStatus = UPLOADSTATUS.UPLOADING;
+                    },
+                    'onQueueComplete': function() {
+                        self.uploadStatus = UPLOADSTATUS.UPLOADED;
+                    },
+                    'onUploadError': function() {
+                        $preview.html('上传失败，请重试 :(').show();
+                    },
+                    'onUploadSuccess': function(file, data, response) {
+                        data = JSON.parse(data);
+                        if (response && data) {
+                            //更新图像及ID
+                            var dId = data[self.uploaderFormat.imageId],
+                                dPath = data[self.uploaderFormat.imagePath];
+                            $preview.html('<img width="' + self.options.previewWidth + '" height="' + self.options.previewHeight + '" src="' + dPath + '" alt=""/><a href="javascript:void(0)" class="J_close am-close" title="删除">&times;</a>').show();
+                            this.imageId = dId;
+                            this.imagePath = dPath;
+                        }
+                    }
+                });
+            },
+            set: function(imageid, imagePath) {
+                this.uploadStatus === UPLOADSTATUS.UPLOADING && this.$uploadify.uploadify('stop');
+                this.imageId = imageid;
+                this.imagePath = imagePath;
+                this.$preview.html('<img width="' + this.options.previewWidth + '" height="' + this.options.previewHeight + '"  src="' + imagePath + '" alt=""/><a href="javascript:void(0)" class="J_close am-close" title="删除">&times;</a>').show();
+                return this;
+            },
+            reset: function() {
+                this.uploadStatus === UPLOADSTATUS.UPLOADING && this.$uploadify.uploadify('stop');
+                this.imageId = '';
+                this.imagePath = '';
+                this.$preview.hide();
+                return this;
+            },
+            get: function() {
+                var result = {};
+                result[this.uploaderFormat.imageId] = this.imageId;
+                result[this.uploaderFormat.imagePath] = this.imagePath;
+                this.uploadStatus === UPLOADSTATUS.UPLOADING && (result.errorMessage = '正在上传，请稍后。。。');
+                return result;
+            }
+        };
+        $.fn.imageUploadify = function(options) {
+            var imageUploadify = new ImageUploadify(this, options);
+            //接口
+            return {
+                set: function(imageid, imagePath) {
+                    imageUploadify.set(imageid, imagePath);
+                    return imageUploadify;
+                },
+                reset: function() {
+                    imageUploadify.reset();
+                    return imageUploadify;
+                },
+                get: function() {
+                    return imageUploadify.get();
+                }
+            };
+        };
+    })();
     $.ajaxSetup({
         cache: false
     });

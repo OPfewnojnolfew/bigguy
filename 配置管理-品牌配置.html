@@ -15,6 +15,7 @@
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/uploadify/uploadify.css">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
@@ -123,15 +124,7 @@
                     <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
                 </div>
                 <div class="am-modal-bd">
-                    <div class="ui-upload">
-                        <input type="hidden" value="#" id="img_hidden">
-                        <div id="img_file" class="uploadify" style="height: 32px; width: 120px;">
-                            
-                            <div id="img_file-button" class="uploadify-button " style="height: 32px; line-height: 32px; width: 120px;"><span class="uploadify-button-text"><i class="am-icon-upload"></i> 选择图像</span></div>
-                        </div>
-                        <div class="tips">请上传500*500像素，jpg/png/gif格式图片</div>
-                        <div class="uiu-box" id="img_loading" style="display:none;">
-                        </div>
+                    <div class="J_upload_container">
                     </div>
                 </div>
             </div>
@@ -149,8 +142,8 @@
         <script src="assets/js/jquery.min.js"></script>
         <!--<![endif]-->
         <script src="assets/js/amazeui.min.js"></script>
+        <script src="assets/js/uploadify/jquery.uploadify.js"></script>
         <script src="assets/js/app.js"></script>
-        <script src="assets/js/plug.uploadify.js"></script>
         <script src="assets/js/set.js"></script>
 </body>
 
