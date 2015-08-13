@@ -137,32 +137,6 @@ $(function() {
 
     // });
 
-    /**
-     * 全选
-     * @param  {[type]} 
-     * @return {[type]}   [description]
-     */
-    $multiCheckbox.on('change', function() {
-        var mulitdom = this;
-        $singleCheckbox.each(function() {
-            this.checked = mulitdom.checked;
-        });
-    });
-    /**
-     * 单选
-     * @param  {[type]} 
-     * @return {[type]}   [description]
-     */
-    $singleCheckbox.on('change', function() {
-        var isAllchecked = true;
-        $singleCheckbox.each(function() {
-            if (!this.checked) {
-                isAllchecked = false;
-                return false;
-            }
-        });
-        $multiCheckbox[0].checked = isAllchecked;
-    });
     /************************************用户管理-待审核经纪人************************************/
     /**
      * 验证

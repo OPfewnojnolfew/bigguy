@@ -541,6 +541,34 @@
             }
         };
     });
+    var $multiCheckbox = $('th input[type="checkbox"]'), //多选
+        $singleCheckbox = $('td input[type="checkbox"]'); //单选
+    /**
+     * 全选
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $multiCheckbox.on('change', function() {
+        var mulitdom = this;
+        $singleCheckbox.each(function() {
+            this.checked = mulitdom.checked;
+        });
+    });
+    /**
+     * 单选
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $singleCheckbox.on('change', function() {
+        var isAllchecked = true;
+        $singleCheckbox.each(function() {
+            if (!this.checked) {
+                isAllchecked = false;
+                return false;
+            }
+        });
+        $multiCheckbox[0].checked = isAllchecked;
+    });
     /**
      *图片上传
      * @return {[type]} [description]
@@ -635,12 +663,17 @@
                         }
                     }
                 });
+                this.set(this.$container.attr('data-imageid'), this.$container.attr('data-imagepath'));
             },
             set: function(imageid, imagePath) {
+                if (!imageid || !imagePath) {
+                    this.reset();
+                    return;
+                }
                 this.uploadStatus === UPLOADSTATUS.UPLOADING && this.$uploadify.uploadify('stop');
                 this.imageId = imageid;
                 this.imagePath = imagePath;
-                this.$hidden.val(dId);
+                this.$hidden.val(imageid);
                 this.$preview.html('<img width="' + this.options.previewWidth + '" height="' + this.options.previewHeight + '"  src="' + imagePath + '" alt=""/><a href="javascript:void(0)" class="J_close am-close" title="删除">&times;</a>').show();
                 return this;
             },

@@ -53,14 +53,14 @@
         <!-- content start -->
         <div class="admin-content">
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">配置管理</strong> / <small>品牌配置</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">配置管理</strong> / <small>设置图片</small></div>
             </div>
             <div class="am-g">
                 <div class="am-u-md-12">
                     <div class="am-btn-toolbar">
                         <div class="am-btn-group am-btn-group-xs">
-                            <button class="J_add_branch am-btn am-btn-success"><span class="am-icon-plus"></span> 添加品牌</button>
-                            <button type="button" class="J_multi-del am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button </div>
+                            <button class="J_add am-btn am-btn-success"><span class="am-icon-plus"></span> 添加照片</button>
+                            <button type="button" class="J_multi-del am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
                         </div>
                     </div>
                 </div>
@@ -73,25 +73,24 @@
                                 <th class="table-check">
                                     <input type="checkbox" />
                                 </th>
-                                <th>品牌标识</th>
-                                <th>品牌名称</th>
+                                <th>照片样图</th>
+                                <th>照片名称</th>
                                 <th>状态</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-id="1" data-name="xxxx" data-imageid="xxx" data-imagepath="xxx" data-ishot="1">
+                            <tr data-id="1" data-name="xx" data-isface="1" data-imageid="11" data-imagepath="xxx">
                                 <td class="am-text-middle">
                                     <input type="checkbox" />
                                 </td>
                                 <td class="am-text-middle"><img src="" width="50" height="50"></td>
-                                <td class="am-text-middle">日立</td>
-                                <td class="am-text-middle"><span class="am-badge am-badge-danger">热门</span></td>
+                                <td class="am-text-middle">xxxxx</td>
+                                <td class="am-text-middle"><span class="am-badge am-badge-danger">封面</span></td>
                                 <td class="am-text-middle">
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
-                                            <button data-href="设置型号页面" class="J_set_subbranch am-btn am-btn-default am-btn-xs"><span class="am-icon-navicon"></span> 设置型号</button>
-                                            <button data-href="" class="J_branch_edit am-btn am-btn-default am-btn-xs am-text-primary"><span class="am-icon-edit"></span> 编辑</button>
+                                            <button data-href="" class="J_edit am-btn am-btn-default am-btn-xs am-text-primary"><span class="am-icon-edit"></span> 编辑</button>
                                             <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
                                         </div>
                                     </div>
@@ -115,67 +114,69 @@
                     </div>
                 </div>
             </div>
-            <!-- content end -->
         </div>
-        <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
-        <div class="J_confirm am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
-            <div class="am-modal-dialog">
-                <div class="am-modal-hd">品牌配置</div>
-                <div class="am-modal-bd">
-                    确定删除选中的品牌吗?
-                </div>
-                <div class="am-modal-footer">
-                    <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-                    <span class="am-modal-btn" data-am-modal-confirm>确定</span>
-                </div>
+        <!-- content end -->
+    </div>
+    <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+    <div class="J_confirm am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">设置图片</div>
+            <div class="am-modal-bd">
+                确定要删除这条记录吗？
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
             </div>
         </div>
-        <div class="J_branch_moal am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
-            <div class="am-modal-dialog">
-                <div class="am-modal-hd am-text-left"><span>添加</span>品牌
-                    <a href="javascript: void(0)" class="am-close" data-am-modal-close>&times;</a>
-                </div>
-                <div class="am-modal-bd">
-                    <div class="am-g">
-                        <div class="am-u-md-12">
-                            <form class="J_branch_form am-form am-form-horizontal" action="" method="post" onsubmit="return false;">
-                                <input type="hidden" class="J_branch_id" name="id" value="" />
-                                <div class="am-margin">
-                                    <input type="text" name="branchname" class="J_branch_name" placeholder="请输入品牌名称">
+    </div>
+    <div class="J_moal am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd am-text-left"><span>添加</span>照片
+                <a href="javascript: void(0)" class="am-close" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="am-g">
+                    <div class="am-u-md-12">
+                        <form class="J_modal_form am-form am-form-horizontal" action="" method="post" onsubmit="return false;">
+                            <input type="hidden" name="modelid" value="5" />
+                            <input type="hidden" class="J_modal_id" name="id" value="" />
+                            <div class="am-margin">
+                                <input type="text" name="name" class="J_modal_name" placeholder="请输入照片名称">
+                            </div>
+                            <div class="J_upload_container am-margin" name="modelimg">
+                            </div>
+                            <div class="am-margin">
+                                <div class="am-checkbox am-text-left">
+                                    <label>
+                                        <input type="checkbox" name="modalhot" class="J_isface" value="1"> 设为封面图片</label>
                                 </div>
-                                <div class="J_upload_container am-margin" name="brachimg">
-                                </div>
-                                <div class="am-margin">
-                                    <div class="am-checkbox am-text-left">
-                                        <label>
-                                            <input type="checkbox" name="branchhot" class="J_branch_ishot" value="1"> 设置为热门</label>
-                                    </div>
-                                </div>
-                                <div class="am-margin">
-                                    <button type="button" class="J_branch_submit am-btn am-btn-primary">添加/编辑</button>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="am-margin">
+                                <button type="button" class="J_modal_submit am-btn am-btn-primary">添加/编辑</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
-            <hr>
-            <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
-        </footer>
-        <!--[if lt IE 9]>
+    </div>
+    <footer>
+        <hr>
+        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+    <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
-        <!--[if (gte IE 9)|!(IE)]><!-->
-        <script src="assets/js/jquery.min.js"></script>
-        <!--<![endif]-->
-        <script src="assets/js/amazeui.min.js"></script>
-        <script src="assets/js/uploadify/jquery.uploadify.js"></script>
-        <script src="assets/js/app.js"></script>
-        <script src="assets/js/branchConfig.js"></script>
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/uploadify/jquery.uploadify.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/picmodelConfig.js"></script>
 </body>
 
 </html>
