@@ -551,7 +551,7 @@
             width: 120,
             height: 32,
             previewWidth: 100,
-            previewHeight: 100,
+            previewHeight: 80,
             buttonText: '上传图片',
             fileFormat: '*.gif; *.jpg; *.png; *.jpeg;',
             uploadLimit: 999,
@@ -584,8 +584,9 @@
             _init: function() {
                 var self = this;
                 ++IMAGEINDEX;
-                var $innerHtml = $('<div><input type="file" id="' + IMAGEID + IMAGEINDEX + '" /><div class="image-uploadify-preview"></div></div>'),
+                var $innerHtml = $('<div><input type="hidden" name="' + this.$container.attr('name') + '"/><input type="file" id="' + IMAGEID + IMAGEINDEX + '" /><div class="image-uploadify-preview"></div></div>'),
                     $uploadify = this.$uploadify = $('[type="file"]', $innerHtml),
+                    $hidden = this.$hidden = $('[type="hidden"]', $innerHtml),
                     $preview = this.$preview = $('.image-uploadify-preview', $innerHtml);
                 this.$container.html($innerHtml);
                 $preview.on('click', function(e) {
@@ -630,6 +631,7 @@
                             $preview.html('<img width="' + self.options.previewWidth + '" height="' + self.options.previewHeight + '" src="' + dPath + '" alt=""/><a href="javascript:void(0)" class="J_close am-close" title="删除">&times;</a>').show();
                             this.imageId = dId;
                             this.imagePath = dPath;
+                            $hidden.val(dId);
                         }
                     }
                 });
@@ -638,6 +640,7 @@
                 this.uploadStatus === UPLOADSTATUS.UPLOADING && this.$uploadify.uploadify('stop');
                 this.imageId = imageid;
                 this.imagePath = imagePath;
+                this.$hidden.val(dId);
                 this.$preview.html('<img width="' + this.options.previewWidth + '" height="' + this.options.previewHeight + '"  src="' + imagePath + '" alt=""/><a href="javascript:void(0)" class="J_close am-close" title="删除">&times;</a>').show();
                 return this;
             },
@@ -645,6 +648,7 @@
                 this.uploadStatus === UPLOADSTATUS.UPLOADING && this.$uploadify.uploadify('stop');
                 this.imageId = '';
                 this.imagePath = '';
+                this.$hidden.val('');
                 this.$preview.hide();
                 return this;
             },

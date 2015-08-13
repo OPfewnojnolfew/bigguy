@@ -120,31 +120,49 @@
         <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
         <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
             <div class="am-modal-dialog">
-                <div class="am-modal-hd">Modal 标题
-                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                <div class="am-modal-hd am-text-left">添加品牌
+                    <a href="javascript: void(0)" class="am-close" data-am-modal-close>&times;</a>
                 </div>
                 <div class="am-modal-bd">
-                    <div class="J_upload_container">
+                    <div class="am-g">
+                        <div class="am-u-md-12">
+                            <form class="am-form am-form-horizontal" action="" method="post" onsubmit="return false;">
+                                <input type="hidden" id="branchid" name="id" value="" />
+                                <div class="am-margin">
+                                    <input type="text" name="branchname" class="J_branch_name" placeholder="请输品牌名称">
+                                </div>
+                                <div class="J_upload_container am-margin" name="brachimg">
+                                </div>
+                                <div class="am-margin">
+                                    <div class="am-checkbox am-text-left">
+                                        <label>
+                                            <input type="checkbox" name="branchhot" class="J_branch_ishot"> 设置为热门</label>
+                                    </div>
+                                </div>
+                                <div class="am-margin">
+                                    <button type="button" class="J_brand_submit am-btn am-btn-primary">添加/编辑</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <footer>
-            <hr>
-            <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
-        </footer>
-        <!--[if lt IE 9]>
+            <footer>
+                <hr>
+                <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+            </footer>
+            <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
-        <!--[if (gte IE 9)|!(IE)]><!-->
-        <script src="assets/js/jquery.min.js"></script>
-        <!--<![endif]-->
-        <script src="assets/js/amazeui.min.js"></script>
-        <script src="assets/js/uploadify/jquery.uploadify.js"></script>
-        <script src="assets/js/app.js"></script>
-        <script src="assets/js/set.js"></script>
+            <!--[if (gte IE 9)|!(IE)]><!-->
+            <script src="assets/js/jquery.min.js"></script>
+            <!--<![endif]-->
+            <script src="assets/js/amazeui.min.js"></script>
+            <script src="assets/js/uploadify/jquery.uploadify.js"></script>
+            <script src="assets/js/app.js"></script>
+            <script src="assets/js/config.js"></script>
 </body>
 
 </html>
