@@ -68,4 +68,37 @@ $(function() {
             location.href = href + '?id=' + id;
         }
     });
+
+    /**
+     * 提交添加编辑奖励
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $('.J_submit').on('click', function() {
+        var $rewardId = $('#reward-id'),
+            $rewardName = $('#reward-name'),
+            $rewardMoney = $('#reward-money'),
+            $rewardDes = $('#reward-des'),
+            $rewardRule = $('#reward-rule'),
+            id = $rewardId.val(),
+            name = $.trim($rewardName.val()),
+            money = $.trim($rewardMoney.val()),
+            des = $.trim($rewardDes.val()),
+            rule = $.trim($rewardRule.val());
+        if (name == '') {
+            notity.warn('奖励名称不能为空');
+            $rewardName.facus();
+            return;
+        }
+        $('.J_reward_form').ajaxSubmit({
+            success: function(res) {
+                if (res.code == 200) {
+                    notify.success(t + '成功');
+                    location.href = '';
+                } else {
+                    notify.warn(t + '失败');
+                }
+            }
+        });
+    });
 });
