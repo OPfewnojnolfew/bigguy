@@ -61,12 +61,22 @@ $(function() {
             location.href = location.href;
         });
     });
+    /**
+     * 增添机型
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_add').on('click', function() {
         $modalTitle.text(ADD);
         $submit.text(ADD);
         $modalForm[0].reset();
         $modal.modal();
     });
+    /**
+     * 编辑机型
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_edit').on('click', function() {
         var $tr = $(this).closest('tr');
         $modalTitle.text(EDIT);
@@ -75,6 +85,11 @@ $(function() {
         $('.J_modal_id').val($tr.attr('data-id'));
         $modal.modal();
     });
+    /**
+     * 提交
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $submit.on('click', function() {
         var $name = $('.J_modal_name'),
             $id = $('.J_modal_id'),
@@ -97,6 +112,11 @@ $(function() {
             }
         });
     });
+    /**
+     * 设置图片
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_set_pic').on('click', function() {
         var $this = $(this),
             href = $this.attr('data-href'),

@@ -62,6 +62,11 @@ $(function() {
             location.href = location.href;
         });
     });
+    /**
+     * 新增品牌
+     * @param  
+     * @return {[type]}   [description]
+     */
     $('.J_add_branch').on('click', function() {
         $branchModalTitle.text(ADD);
         $branchSubmit.text(ADD);
@@ -69,6 +74,11 @@ $(function() {
         $branchForm[0].reset();
         $branchModal.modal();
     });
+    /**
+     * 编辑品牌
+     * @param  
+     * @return {[type]}   [description]
+     */
     $('.J_branch_edit').on('click', function() {
         var $tr = $(this).closest('tr');
         $branchModalTitle.text(EDIT);
@@ -79,6 +89,11 @@ $(function() {
         imageUploadify.set($tr.attr('data-imageid'), $tr.attr('data-imagepath'));
         $branchModal.modal();
     });
+    /**
+     * 提交
+     * @param  
+     * @return {[type]}   [description]
+     */
     $branchSubmit.on('click', function() {
         var $name = $('.J_branch_name'),
             $id = $('.J_branch_id'),
@@ -106,6 +121,11 @@ $(function() {
             }
         });
     });
+    /**
+     * 设置型号
+     * @param  
+     * @return {[type]}   [description]
+     */
     $('.J_set_subbranch').on('click', function() {
         var $this = $(this),
             href = $this.attr('data-href'),

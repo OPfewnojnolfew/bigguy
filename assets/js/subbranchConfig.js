@@ -61,12 +61,22 @@ $(function() {
             location.href = location.href;
         });
     });
+    /**
+     * 添加型号
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_add_subbranch').on('click', function() {
         $subbranchModalTitle.text(ADD);
         $subbranchSubmit.text(ADD);
         $subbranchForm[0].reset();
         $subbranchModal.modal();
     });
+    /**
+     * 编辑型号
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_subbranch_edit').on('click', function() {
         var $tr = $(this).closest('tr');
         $subbranchModalTitle.text(EDIT);
@@ -75,6 +85,11 @@ $(function() {
         $('.J_subbranch_id').val($tr.attr('data-id'));
         $subbranchModal.modal();
     });
+    /**
+     * 提交
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $subbranchSubmit.on('click', function() {
         var $name = $('.J_subbranch_name'),
             $id = $('.J_subbranch_id'),

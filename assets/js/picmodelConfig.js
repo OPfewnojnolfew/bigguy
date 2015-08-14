@@ -62,6 +62,11 @@ $(function() {
             location.href = location.href;
         });
     });
+    /**
+     * 增添机型图片
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_add').on('click', function() {
         $modalTitle.text(ADD);
         $submit.text(ADD);
@@ -69,6 +74,11 @@ $(function() {
         imageUploadify.reset();
         $modal.modal();
     });
+    /**
+     * 编辑机型图片
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_edit').on('click', function() {
         var $tr = $(this).closest('tr');
         $modalTitle.text(EDIT);
@@ -79,6 +89,11 @@ $(function() {
         imageUploadify.set($tr.attr('data-imageid'), $tr.attr('data-imagepath'));
         $modal.modal();
     });
+    /**
+     * 提交
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $submit.on('click', function() {
         var $name = $('.J_modal_name'),
             $id = $('.J_modal_id'),
@@ -105,13 +120,5 @@ $(function() {
                 }
             }
         });
-    });
-    $('.J_edit').on('click', function() {
-        var $this = $(this),
-            href = $this.attr('data-href'),
-            id = $this.closest('tr').attr('data-id');
-        if (href && id) {
-            location.href = href + '?id=' + id;
-        }
     });
 });

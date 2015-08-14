@@ -1,33 +1,33 @@
 $(function() {
     var $multiCheckbox = $('th input[type="checkbox"]'), //多选
-        $singleCheckbox = $('td input[type="checkbox"]'); //单选
-    /**
-     * 删除品牌
-     * @param  {[type]}   ids      [description]
-     * @param  {Function} callback [description]
-     * @return {[type]}            [description]
-     */
-    del = function(ids, callback) {
-        if (!ids) {
-            notify.warn('未选择任何项');
-            return;
-        }
-        $('.J_confirm').modal({
-            onConfirm: function(options) {
-                $.post('', {
-                    ids: ids
-                }).then(function(res) {
-                    if (res.code == 200) {
-                        notify.warn('删除成功');
-                        callback && callback();
-                    } else {
-                        notify.warn(res.message);
-                    }
-                });
-            },
-            onCancel: function() {}
-        });
-    };
+        $singleCheckbox = $('td input[type="checkbox"]'), //单选
+        /**
+         * 删除品牌
+         * @param  {[type]}   ids      [description]
+         * @param  {Function} callback [description]
+         * @return {[type]}            [description]
+         */
+        del = function(ids, callback) {
+            if (!ids) {
+                notify.warn('未选择任何项');
+                return;
+            }
+            $('.J_confirm').modal({
+                onConfirm: function(options) {
+                    $.post('', {
+                        ids: ids
+                    }).then(function(res) {
+                        if (res.code == 200) {
+                            notify.warn('删除成功');
+                            callback && callback();
+                        } else {
+                            notify.warn(res.message);
+                        }
+                    });
+                },
+                onCancel: function() {}
+            });
+        };
     /**
      * 单条删除
      * @param  {[type]} 
