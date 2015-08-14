@@ -55,13 +55,17 @@ $(function() {
             location.href = location.href;
         });
     });
+    /**
+     * 编辑
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_edit').on('click', function() {
-        var $tr = $(this).closest('tr');
-        $modalTitle.text(EDIT);
-        $submit.text(EDIT);
-        $('.J_modal_name').val($tr.attr('data-name'));
-        $('.J_modal_id').val($tr.attr('data-id'));
-        $modal.modal();
+        var $this = $(this),
+            href = $this.attr('data-href'),
+            id = $this.closest('tr').attr('data-id');
+        if (href && id) {
+            location.href = href + '?id=' + id;
+        }
     });
-
 });
