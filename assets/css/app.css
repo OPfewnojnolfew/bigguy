@@ -62,6 +62,9 @@
     .bb-month-select {
         width: 66px;
     }
+    .bb-geo-select {
+        width: 127px;
+    }
 }
 
 .toggle-off {

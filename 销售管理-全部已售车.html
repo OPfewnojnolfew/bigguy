@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>大家伙二手工程机械平台</title>
+    <meta name="description" content="大家伙二手工程机械平台">
+    <meta name="keywords" content="table">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+    <header class="am-topbar admin-header">
+        <div class="am-topbar-brand">
+            <strong>大家伙二手工程机械平台</strong><small> 后台管理</small>
+        </div>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+                <li class="am-dropdown" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+                    </ul>
+                </li>
+                <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="am-cf admin-main">
+        <!-- sidebar start -->
+        <div class="J_menu admin-sidebar am-offcanvas" id="admin-offcanvas">
+            <div class="am-offcanvas-bar admin-offcanvas-bar">
+            </div>
+        </div>
+        <!-- sidebar end -->
+        <!-- content start -->
+        <div class="admin-content">
+            <div class="am-cf am-padding">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>出售</small></div>
+            </div>
+            <div class="am-g">
+                <div class="am-u-md-12 am-text-right">
+                    <form class="J_select_form am-form am-form-inline" role="form" method="get" action="">
+                        <input type="hidden" class="J_param" name="pageIndex" value="0" />
+                        <input type="hidden" class="J_param" name="pageSize" value="20" />
+                        <input type="hidden" class="J_param" name="type" value="1" />
+                        <div class="J_geo am-form-group" data-provincename="province" data-cityname="city"></div>
+                        <div class="am-form-group bb-year-select">
+                            <select class="J_year" name="year">
+                                <option value="2014">2014年</option>
+                                <option value="2015" selected>2015年</option>
+                                <option value="2016">2016年</option>
+                            </select>
+                            <span class="am-form-caret"></span>
+                        </div>
+                        <div class="am-form-group bb-month-select">
+                            <select class="J_month" name="month">
+                                <option value="1">1月</option>
+                                <option value="2" selected>2月</option>
+                                <option value="3">3月</option>
+                                <option value="4">4月</option>
+                                <option value="5">5月</option>
+                                <option value="6">6月</option>
+                                <option value="7">7月</option>
+                                <option value="8">8月</option>
+                                <option value="9">9月</option>
+                                <option value="10">10月</option>
+                                <option value="11">11月</option>
+                                <option value="12">12月</option>
+                            </select>
+                            <span class="am-form-caret"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="am-g">
+                <div class="am-u-sm-12">
+                    <table class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                            <tr>
+                                <th class="table-check">
+                                    <input type="checkbox" />
+                                </th>
+                                <th>封面图</th>
+                                <th>名称</th>
+                                <th>出厂编号</th>
+                                <th class="am-hide-sm-only">工时/出厂时间</th>
+                                <th class="am-hide-sm-only">重量</th>
+                                <th class="am-hide-sm-only">看车地点</th>
+                                <th>售价</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-id="1">
+                                <td class="am-text-middle">
+                                    <input type="checkbox" />
+                                </td>
+                                <td class="am-text-middle"><img src="" width="50" height="50"></td>
+                                <td class="am-text-middle">xxx</td>
+                                <td class="am-text-middle">11111</td>
+                                <td class="am-text-middle am-hide-sm-only">12/2014-12-12</td>
+                                <td class="am-text-middle am-hide-sm-only">11顿</td>
+                                <td class="am-text-middle am-hide-sm-only">陕西-西安</td>
+                                <td class="am-text-middle am-text-danger">22</td>
+                                <td class="am-text-middle">
+                                    <div class="am-btn-toolbar">
+                                        <div class="am-btn-group am-btn-group-xs">
+                                            <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
+                                            <button class="J_detail am-btn am-btn-default am-btn-xs"><span class="am-icon-list"></span> 详情</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="am-cf">
+                        共 15 条记录
+                        <div class="am-fr">
+                            <ul class="am-pagination">
+                                <li class="am-disabled"><a href="#">«</a></li>
+                                <li class="am-active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content end -->
+    </div>
+    <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+    <div class="J_confirm am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">全部已售车</div>
+            <div class="am-modal-bd">
+                确定要删除这条记录吗？
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <hr>
+        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+    <!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/geo.js"></script>
+    <script src="assets/js/sales.js"></script>
+</body>
+
+</html>
