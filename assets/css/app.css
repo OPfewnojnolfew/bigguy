@@ -55,14 +55,15 @@
     transform: translateY(0)
 }
 
-@media only screen and (min-width:641px) {
+
+/*@media only screen and (min-width:641px) {
     .bb-year-select {
         width: 88px;
     }
     .bb-month-select {
         width: 66px;
     }
-}
+}*/
 
 .bb-select li {
     padding: 0 5px;
@@ -72,10 +73,20 @@
     min-width: 95px;
 }
 
-.bb-geo-container select {
+.bb-table-main {
+    font-size: 1.4rem;
+}
+
+.bb-table-disabled {
+    background: #f9f9f9;
+    color: #999;
+}
+
+
+/*.bb-geo-container select {
     display: inline-block;
     min-width: 127px;
-}
+}*/
 
 .toggle-off {
     background: url(../img/toggle.png) no-repeat;
