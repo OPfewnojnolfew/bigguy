@@ -52,7 +52,7 @@
         <!-- content start -->
         <div class="admin-content">
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">车源管理</strong> / <small>详情</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">车源管理</strong> / <small>审核</small></div>
             </div>
             <div class="am-panel am-panel-default am-margin">
                 <div class="am-panel-hd am-cf">
@@ -182,23 +182,34 @@
                     </ul>
                 </div>
             </div>
+            <div class="am-panel am-panel-default am-padding-lg am-margin-top am-margin">
+                <form class="am-form am-form-horizontal am-form-inline" onsubmit="return false;">
+                    <div class="am-form-group">
+                        <label for="serialnumber" class="am-u-sm-4 am-text-right">出厂编号:</label>
+                        <div class="am-u-sm-8">
+                            <input type="text" name="serialnumber" id="serialnumber" placeholder="请填写出厂编号">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="usedtime" class="am-u-sm-4 am-text-right">使用工时:</label>
+                        <div class="am-u-sm-8">
+                            <div class="am-input-group">
+                                <input type="text" name="usedtime" class="am-form-field" id="usedtime"> <span class="am-input-group-label">小时</span></div>
+                        </div>
+                    </div>
+                    <textarea class="J_reason am-margin-top" rows="3" name="reason" placeholder="不合格时，请在此处说明原因"></textarea>
+                    <div class="am-text-center am-margin-top">
+                        <input type="hidden" name="ispass" id="ispass"/>
+                        <button data-status="1" type="button" class="J_pass am-btn am-btn-success am-radius"><i class="am-icon-check"></i> 合格</button>
+                        <button data-status="0" type="button" class="J_nopass am-btn am-btn-warning am-radius"><i class="am-icon-close"></i> 不合格</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <!-- content end -->
     </div>
     <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
-    <div class="J_confirm am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
-        <div class="am-modal-dialog">
-            <div class="am-modal-hd">个人用户</div>
-            <div class="am-modal-bd">
-                确定要删除这条记录吗？
-            </div>
-            <div class="am-modal-footer">
-                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
-            </div>
-        </div>
-    </div>
     <footer>
         <hr>
         <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
@@ -213,7 +224,7 @@
     <!--<![endif]-->
     <script src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/user.js"></script>
+    <script src="assets/js/carsourcearchive.js"></script>
 </body>
 
 </html>

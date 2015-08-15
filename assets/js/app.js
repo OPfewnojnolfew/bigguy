@@ -94,7 +94,7 @@
                 }
                 $ul.append($li);
             }
-            $('.J_menu').offCanvas();
+            // $('.J_menu').offCanvas();
             $('.J_menu .am-offcanvas-bar').html($ul);
         })();
         /**
