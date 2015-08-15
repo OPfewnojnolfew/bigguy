@@ -392,8 +392,11 @@
         option || (option = {});
         return this.each(function() {
             var $this = $(this),
+                isInit = true,
                 provinceName = option.provinceName || $this.attr('data-provinceName') || '',
                 cityName = option.cityName || $this.attr('data-cityName') || '',
+                provinceValue = option.provinceValue || $this.attr('data-provinceValue') || '',
+                cityValue = option.cityValue || $this.attr('data-cityValue') || '',
                 $province = $('<li><select name="' + provinceName + '" class="am-input-sm"></select></li>'),
                 $city = $('<li><select name="' + cityName + '" class="am-input-sm"></select></li>'),
                 $provinceSelect = $('select', $province),
@@ -405,10 +408,10 @@
             $provinceSelect.html('<option value="">选择省</option>');
             for (; i < length; i++) {
                 item = provinces[i];
-                $option = $('<option value="' + item + '" data-index="' + i + '">' + item + '</option>');
+                $option = $('<option value="' + item + '" data-index="' + i + '" ' + (provinceValue === item ? 'selected' : '') + '>' + item + '</option>');
                 $provinceSelect.append($option);
             }
-            $citySelect.html('<option value="">选择市</option>');
+            // $citySelect.html('<option value="">选择市</option>');
             $provinceSelect.on('change', function() {
                 $citySelect.html('<option value="">选择市</option>');
                 var index = $provinceSelect.find('option:selected').attr('data-index'),
@@ -416,16 +419,17 @@
                 if (cityItems) {
                     for (i = 0, length = cityItems.length; i < length; i++) {
                         item = cityItems[i];
-                        $option = $('<option value="' + item + '">' + item + '</option>');
+                        $option = $('<option value="' + item + '" ' + (cityValue === item ? 'selected' : '') + '>' + item + '</option>');
                         $citySelect.append($option);
                     }
-                }
-                option.checked && option.checked($provinceSelect.val(), $citySelect.val());
+                }!isInit && option.checked && option.checked($provinceSelect.val(), $citySelect.val());
+                isInit = false;
             });
             $citySelect.on('change', function() {
                 option.checked && option.checked($provinceSelect.val(), $citySelect.val());
             });
             $this.append($province).append($city);
+            $provinceSelect.trigger('change');
         });
     };
 })();
