@@ -29,11 +29,6 @@ $(function() {
             onCancel: function() {}
         });
     };
-    $('.J_geo').geo({
-        checked: function(a, b) {
-            $searchForm.submit();
-        }
-    });
     /**
      * 单条删除
      * @param  {[type]} 
@@ -60,8 +55,5 @@ $(function() {
         del(ids.join(','), function() {
             location.href = location.href;
         });
-    });
-    $('.J_select').on('change', function() {
-        $searchForm.submit();
     });
 });

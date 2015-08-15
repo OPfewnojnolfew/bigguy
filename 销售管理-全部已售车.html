@@ -52,40 +52,49 @@
         <!-- content start -->
         <div class="admin-content">
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>出售</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">销售管理</strong> / <small>全部已售车</small></div>
             </div>
             <div class="am-g">
-                <div class="am-u-md-12 am-text-right">
-                    <form class="J_select_form am-form am-form-inline" role="form" method="get" action="">
+                <div class="am-u-md-2">
+                    <div class="am-btn-group am-btn-group-xs">
+                        <button type="button" class="J_multi-del am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+                    </div>
+                </div>
+                <div class="am-u-md-10 am-u-sm-12">
+                    <form class="J_search_form am-form am-form-inline" role="form" method="get" action="">
                         <input type="hidden" class="J_param" name="pageIndex" value="0" />
                         <input type="hidden" class="J_param" name="pageSize" value="20" />
                         <input type="hidden" class="J_param" name="type" value="1" />
-                        <div class="J_geo am-form-group" data-provincename="province" data-cityname="city"></div>
-                        <div class="am-form-group bb-year-select">
-                            <select class="J_year" name="year">
-                                <option value="2014">2014年</option>
-                                <option value="2015" selected>2015年</option>
-                                <option value="2016">2016年</option>
-                            </select>
-                            <span class="am-form-caret"></span>
-                        </div>
-                        <div class="am-form-group bb-month-select">
-                            <select class="J_month" name="month">
-                                <option value="1">1月</option>
-                                <option value="2" selected>2月</option>
-                                <option value="3">3月</option>
-                                <option value="4">4月</option>
-                                <option value="5">5月</option>
-                                <option value="6">6月</option>
-                                <option value="7">7月</option>
-                                <option value="8">8月</option>
-                                <option value="9">9月</option>
-                                <option value="10">10月</option>
-                                <option value="11">11月</option>
-                                <option value="12">12月</option>
-                            </select>
-                            <span class="am-form-caret"></span>
-                        </div>
+                        <ul class="J_geo am-u-md-4 am-u-sm-12 am-avg-md-2 am-avg-sm-1  bb-select" data-provincename="province" data-cityname="city"></ul>
+                        <ul class="am-u-md-8 am-u-sm-12 am-avg-md-5 am-avg-sm-1 bb-select">
+                            <li>
+                                <select class="J_select" name="branch">
+                                    <option value="">选择品牌</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select class="J_select" name="model">
+                                    <option value="">选择机型</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select class="J_select" name="year">
+                                    <option value="">出厂年份</option>
+                                    <option value="2015">2015</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select class="J_select" name="hour">
+                                    <option value="">使用工时</option>
+                                    <option value="10">10天</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select class="J_select" name="price">
+                                    <option value="">选择价格</option>
+                                </select>
+                            </li>
+                        </ul>
                     </form>
                 </div>
             </div>

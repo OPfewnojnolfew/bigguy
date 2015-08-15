@@ -394,8 +394,8 @@
             var $this = $(this),
                 provinceName = option.provinceName || $this.attr('data-provinceName') || '',
                 cityName = option.cityName || $this.attr('data-cityName') || '',
-                $province = $('<div class="am-form-group am-margin-left-xs bb-geo-select"><select name="' + provinceName + '"></select><span class="am-form-caret"></span></div>'),
-                $city = $('<div class="am-form-group am-margin-left-xs bb-geo-select"><select name="' + cityName + '"></select><span class="am-form-caret"></span></div>'),
+                $province = $('<li><select name="' + provinceName + '"></select></li>'),
+                $city = $('<li><select name="' + cityName + '"></select></li>'),
                 $provinceSelect = $('select', $province),
                 $citySelect = $('select', $city);
             var i = 0,

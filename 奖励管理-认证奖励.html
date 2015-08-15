@@ -52,14 +52,33 @@
         <!-- content start -->
         <div class="admin-content">
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">配置管理</strong> / <small>设置奖励</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">奖励管理</strong> / <small>认证奖励</small></div>
             </div>
             <div class="am-g">
-                <div class="am-u-md-12">
+                <div class="am-u-md-2 am-u-sm-2">
                     <div class="am-btn-group am-btn-group-xs">
-                        <a href="新增奖励页面" class="am-btn am-btn-success"><span class="am-icon-plus"></span> 添加奖励</a>
                         <button type="button" class="J_multi-del am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
                     </div>
+                </div>
+                <div class="am-u-md-6 am-u-md-offset-4 am-u-sm-10">
+                    <form class="J_search_form am-form" method="get" action="">
+                        <input type="hidden" class="J_param" name="pageIndex" value="0" />
+                        <input type="hidden" class="J_param" name="pageSize" value="20" />
+                        <input type="hidden" class="J_param" name="type" value="1" />
+                        <div class="am-u-md-4">
+                            <select class="J_select am-input-sm" name="status">
+                                <option value="">全部</option>
+                                <option value="1">待奖励</option>
+                                <option value="2">已奖励</option>
+                            </select>
+                        </div>
+                        <div class="am-u-md-8 am-input-group am-input-group-sm">
+                            <input type="text" name="username" class="J_param J_search_name am-form-field" placeholder="请输入账号搜索">
+                            <span class="am-input-group-btn">
+                            <button class="J_search_btn am-btn am-btn-default" type="submit">搜索</button>
+                        </span>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="am-g">
@@ -70,26 +89,46 @@
                                 <th class="table-check">
                                     <input type="checkbox" />
                                 </th>
-                                <th>奖励名称</th>
-                                <th>奖励金额</th>
-                                <th>状态</th>
+                                <th>经纪人帐号</th>
+                                <th>经纪人姓名</th>
+                                <th>奖励</th>
+                                <th class="am-hide-sm-only">状态</th>
+                                <th class="am-hide-sm-only">审核通过时间</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-id="1" data-name="xx">
+                            <tr data-id="1">
                                 <td>
                                     <input type="checkbox" />
                                 </td>
-                                <td>分享奖励</td>
-                                <td>10元</td>
-                                <td>
-                                    <a data-status="1" href="javascript:void(0)" class="J_change_status toggle-on"></a>
-                                </td>
+                                <td>11111</td>
+                                <td>谢谢</td>
+                                <td class="am-text-warning">11元</td>
+                                <td>已奖励</td>
+                                <td class="am-hide-sm-only">2014-12-12</td>
                                 <td>
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
-                                            <button data-href="编辑页面地址" class="J_edit am-btn am-btn-default am-btn-xs am-text-primary"><span class="am-icon-edit"></span> 编辑</button>
+                                            <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>
+                                    <input type="checkbox" />
+                                </td>
+                                <td>11111</td>
+                                <td>谢谢</td>
+                                <td class="am-text-warning">11元</td>
+                                <td>
+                                    <button class="J_reward am-btn am-btn-default am-btn-xs am-text-success">奖励</button>
+                                </td>
+                                <td class="am-hide-sm-only">2014-12-12</td>
+                                <td>
+                                    <div class="am-btn-toolbar">
+                                        <div class="am-btn-group am-btn-group-xs">
                                             <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
                                         </div>
                                     </div>
@@ -119,7 +158,7 @@
     <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
     <div class="J_confirm am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
         <div class="am-modal-dialog">
-            <div class="am-modal-hd">设置奖励</div>
+            <div class="am-modal-hd">认证奖励</div>
             <div class="am-modal-bd">
                 确定要删除这条记录吗？
             </div>
@@ -143,7 +182,8 @@
     <!--<![endif]-->
     <script src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/rewardConfig.js"></script>
+    <script src="assets/js/geo.js"></script>
+    <script src="assets/js/reward.js"></script>
 </body>
 
 </html>

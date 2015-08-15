@@ -62,9 +62,19 @@
     .bb-month-select {
         width: 66px;
     }
-    .bb-geo-select {
-        width: 127px;
-    }
+}
+
+.bb-select li {
+    padding: 0 5px;
+}
+
+.bb-select li select {
+    min-width: 95px;
+}
+
+.bb-geo-container select {
+    display: inline-block;
+    min-width: 127px;
 }
 
 .toggle-off {

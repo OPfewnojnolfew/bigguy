@@ -29,11 +29,6 @@ $(function() {
             onCancel: function() {}
         });
     };
-    $('.J_geo').geo({
-        checked: function(a, b) {
-            $searchForm.submit();
-        }
-    });
     /**
      * 单条删除
      * @param  {[type]} 
@@ -61,7 +56,32 @@ $(function() {
             location.href = location.href;
         });
     });
+    /**
+     * 提交表单
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_select').on('change', function() {
         $searchForm.submit();
+    });
+    /**
+     * 奖励
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $('.J_reward').on('click', function() {
+        var $this = $(this),
+            $tr = $this.closest('tr'),
+            id = $tr.attr('data-id');
+        $.post('', {
+            id: ''
+        }).then(function() {
+            if (res.code == 200) {
+                notify.success('奖励成功');
+                $this.after('已奖励').remove();
+            } else {
+                notify.success('奖励失败');
+            }
+        });
     });
 });
