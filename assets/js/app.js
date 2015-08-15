@@ -1,4 +1,128 @@
 (function($) {
+    /**
+     * 生成菜单
+     * @return {[type]} [description]
+     */
+    (function() {
+        var menuData = [{
+            name: '车源管理',
+            href: '#',
+            iconClass: 'am-icon-automobile',
+            active: true,
+            children: [{
+                name: '已审核车源',
+                href: '车源管理-已审核车源.html',
+                iconClass: 'iconfont icon-shenhechenggong'
+            }, {
+                name: '待审核车源',
+                href: '车源管理-待审核车源.html',
+                iconClass: 'iconfont icon-daishenhe'
+            }]
+        }, {
+            name: '销售管理',
+            href: '#',
+            iconClass: 'iconfont icon-xiaoshouguanli01',
+            active: false,
+            children: [{
+                name: '已售车',
+                href: '销售管理-全部已售车.html',
+                iconClass: 'iconfont icon-yishouchanpin'
+            }]
+        }, {
+            name: '用户管理',
+            href: '#',
+            iconClass: 'iconfont icon-yonghuguanli',
+            active: false,
+            children: [{
+                name: '个人用户',
+                href: '用户管理-个人用户.html',
+                iconClass: 'iconfont icon-person'
+            }, {
+                name: '未认证经纪人',
+                href: '用户管理-未认证经纪人.html',
+                iconClass: 'iconfont icon-weishimingrenzheng'
+            }, {
+                name: '已认证经纪人',
+                href: '用户管理-已认证经纪人.html',
+                iconClass: 'iconfont icon-renzheng'
+            }, {
+                name: '待审核经纪人',
+                href: '用户管理-待审核经纪人.html',
+                iconClass: 'iconfont icon-shenhe'
+            }, {
+                name: '管理员',
+                href: '用户管理-管理员.html',
+                iconClass: 'iconfont icon-guanliyuan'
+            }]
+        }, {
+            name: '奖励管理',
+            href: '#',
+            iconClass: 'iconfont icon-jiangliguanli',
+            children: [{
+                name: '认证奖励',
+                href: '奖励管理-认证奖励.html',
+                iconClass: 'iconfont icon-jiangli'
+            }, {
+                name: '车源奖励',
+                href: '奖励管理-车源奖励.html',
+                iconClass: 'iconfont icon-che'
+            }]
+        }, {
+            name: '配置管理',
+            href: '#',
+            iconClass: 'iconfont icon-peizhi',
+            children: [{
+                name: '品牌配置',
+                href: '配置管理-品牌配置.html',
+                iconClass: 'iconfont icon-pinpai'
+            }, {
+                name: '机型配置',
+                href: '配置管理-机型配置.html',
+                iconClass: 'iconfont icon-model'
+            }, {
+                name: '奖励配置',
+                href: '配置管理-奖励配置.html',
+                iconClass: 'iconfont icon-jiangli'
+            }]
+        }, {
+            name: '图文管理',
+            href: '图文管理-全部.html',
+            iconClass: 'iconfont icon-tuwen'
+        }];
+        var i = 0,
+            item,
+            $ul = $('<ul class="am-list admin-sidebar-list"></ul>'),
+            $li,
+            $a,
+            j,
+            subLen,
+            subcollapseName,
+            subItem,
+            $subul,
+            $subli,
+            len = menuData.length;
+        for (; i < len; i++) {
+            item = menuData[i];
+            if (item.children && (subLen = item.children.length)) {
+                $li = $('<li class="admin-parent"></li>');
+                subcollapseName = 'collapse-nav-' + i;
+                $a = $('<a class="am-cf" data-am-collapse="{target: \'#' + subcollapseName + '\'}"><span class="' + item.iconClass + '"></span> ' + item.name + ' <span class="am-icon-angle-right am-fr am-margin-right"></span></a>');
+                $subul = $('<ul class="am-list admin-sidebar-sub am-collapse' + (item.active ? ' am-in ' : '') + '" id="' + subcollapseName + '">');
+                for (j = 0; j < item.children.length; j++) {
+                    subItem = item.children[j];
+                    $subli = $('<li><a href="' + subItem.href + '"><span class="' + subItem.iconClass + '"></span> ' + subItem.name + '</a></li>');
+                    $subul.append($subli);
+                }
+                $li.append($a).append($subul);
+            } else {
+                $li = $('<li><a href="' + item.href + '"><span class="' + item.iconClass + '"></span>' + item.name + '</a></li>');
+            }
+            $ul.append($li);
+        }
+        // $('.J_menu').offCanvas();
+        $('.J_menu .am-offcanvas-bar').html($ul);
+    })();
+
     $(function() {
         var $fullText = $('.admin-fullText');
         $('#admin-fullscreen').on('click', function() {
@@ -8,129 +132,6 @@
         $(document).on($.AMUI.fullscreen.raw.fullscreenchange, function() {
             $fullText.text($.AMUI.fullscreen.isFullscreen ? '退出全屏' : '开启全屏');
         });
-        /**
-         * 生成菜单
-         * @return {[type]} [description]
-         */
-        (function() {
-            var menuData = [{
-                name: '车源管理',
-                href: '#',
-                iconClass: 'am-icon-automobile',
-                active: true,
-                children: [{
-                    name: '已审核车源',
-                    href: '车源管理-已审核车源.html',
-                    iconClass: 'iconfont icon-shenhechenggong',
-                }, {
-                    name: '待审核车源',
-                    href: '车源管理-待审核车源.html',
-                    iconClass: 'iconfont icon-daishenhe',
-                }]
-            }, {
-                name: '销售管理',
-                href: '#',
-                iconClass: 'iconfont icon-xiaoshouguanli01',
-                active: false,
-                children: [{
-                    name: '已售车',
-                    href: '销售管理-全部已售车.html',
-                    iconClass: 'iconfont icon-yishouchanpin',
-                }]
-            }, {
-                name: '用户管理',
-                href: '#',
-                iconClass: 'iconfont icon-yonghuguanli',
-                active: false,
-                children: [{
-                    name: '个人用户',
-                    href: '用户管理-个人用户.html',
-                    iconClass: 'iconfont icon-person',
-                }, {
-                    name: '未认证经纪人',
-                    href: '用户管理-未认证经纪人.html',
-                    iconClass: 'iconfont icon-weishimingrenzheng',
-                }, {
-                    name: '已认证经纪人.html',
-                    href: '用户管理-已认证经纪人.html',
-                    iconClass: 'iconfont icon-renzheng',
-                }, {
-                    name: '待审核经纪人.html',
-                    href: '用户管理-待审核经纪人.html',
-                    iconClass: 'iconfont icon-shenhe',
-                }, {
-                    name: '管理员.html',
-                    href: '用户管理-管理员.html',
-                    iconClass: 'iconfont icon-guanliyuan',
-                }]
-            }, {
-                name: '奖励管理',
-                href: '#',
-                iconClass: 'iconfont icon-jiangliguanli',
-                children: [{
-                    name: '认证奖励',
-                    href: '奖励管理-认证奖励.html',
-                    iconClass: 'iconfont icon-jiangli',
-                }, {
-                    name: '车源奖励',
-                    href: '奖励管理-车源奖励.html',
-                    iconClass: 'iconfont icon-che',
-                }]
-            }, {
-                name: '配置管理',
-                href: '#',
-                iconClass: 'iconfont icon-peizhi',
-                children: [{
-                    name: '品牌配置',
-                    href: '配置管理-品牌配置.html',
-                    iconClass: 'iconfont icon-pinpai',
-                }, {
-                    name: '机型配置',
-                    href: '配置管理-机型配置.html',
-                    iconClass: 'iconfont icon-model',
-                }, {
-                    name: '奖励配置',
-                    href: '配置管理-奖励配置.html',
-                    iconClass: 'iconfont icon-jiangli',
-                }]
-            }, {
-                name: '图文管理',
-                href: '图文管理-全部.html',
-                iconClass: 'iconfont icon-tuwen'
-            }];
-            var i = 0,
-                item,
-                $ul = $('<ul class="am-list admin-sidebar-list"></ul>'),
-                $li,
-                $a,
-                j,
-                subLen,
-                subcollapseName,
-                subItem,
-                $subul,
-                $subli,
-                len = menuData.length;
-            for (; i < len; i++) {
-                item = menuData[i];
-                if (item.children && (subLen = item.children.length)) {
-                    $li = $('<li class="admin-parent"></li>');
-                    subcollapseName = 'collapse-nav-' + i;
-                    $a = $('<a class="am-cf" data-am-collapse="{target: \'#' + subcollapseName + '\'}"><span class="' + item.iconClass + '"></span> ' + item.name + ' <span class="am-icon-angle-right am-fr am-margin-right"></span></a>');
-                    $subul = $('<ul class="am-list admin-sidebar-sub am-collapse' + (item.active ? ' am-in ' : '') + '" id="' + subcollapseName + '">');
-                    for (j = 0; j < item.children.length; j++) {
-                        subItem = item.children[j];
-                        $subli = $('<li><a href="' + subItem.href + '"><span class="' + subItem.iconClass + '"></span> ' + subItem.name + '</a></li>');
-                        $subul.append($subli);
-                    }
-                    $li.append($a).append($subul);
-                } else {
-                    $li = $('<li><a href="' + item.href + '"><span class="' + item.iconClass + '"></span>' + item.name + '</a></li>');
-                }
-                $ul.append($li);
-            }
-            // $('.J_menu').offCanvas();
-            $('.J_menu .am-offcanvas-bar').html($ul);
-        })();
         /**
          * 警告框
          * @return {[type]} [description]

@@ -220,7 +220,14 @@ $(function() {
             $this.siblings('.J_single_ban').removeClass('am-hide');
         });
     });
-
+    $('.J_detail').on('click', function() {
+        var $this = $(this),
+            href = $this.attr('data-href'),
+            id = $this.closest('tr').attr('data-id');
+        if (href && id) {
+            location.href = href + '?id=' + id;
+        }
+    });
     /************************************用户管理-已认证经纪人-提供车源************************************/
     var $selectForm = $('.J_select_form'),
         $year = $('.J_year'),

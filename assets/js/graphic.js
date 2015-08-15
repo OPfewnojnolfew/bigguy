@@ -56,4 +56,17 @@ $(function() {
             location.href = location.href;
         });
     });
+    /**
+     * 编辑
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $('.J_edit').on('click', function() {
+        var $this = $(this),
+            href = $this.attr('data-href'),
+            id = $this.closest('tr').attr('data-id');
+        if (href && id) {
+            location.href = href + '?id=' + id;
+        }
+    });
 });

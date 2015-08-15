@@ -74,7 +74,7 @@ $(function() {
             $tr = $this.closest('tr'),
             id = $tr.attr('data-id');
         $.post('', {
-            id: ''
+            id: id
         }).then(function() {
             if (res.code == 200) {
                 notify.success('奖励成功');
