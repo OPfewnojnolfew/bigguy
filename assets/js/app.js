@@ -10,11 +10,12 @@
      * @return {[type]} [description]
      */
     (function() {
+        return;
         var menuData = [{
             name: '车源管理',
             href: '#',
             iconClass: 'am-icon-automobile',
-            active: true,
+            active: false,
             children: [{
                 name: '已审核车源',
                 href: '车源管理-已审核车源.html',
@@ -64,6 +65,7 @@
             name: '奖励管理',
             href: '#',
             iconClass: 'iconfont icon-jiangliguanli',
+            active: false,
             children: [{
                 name: '认证奖励',
                 href: '奖励管理-认证奖励.html',
@@ -76,6 +78,7 @@
         }, {
             name: '配置管理',
             href: '#',
+            active: false,
             iconClass: 'iconfont icon-peizhi',
             children: [{
                 name: '品牌配置',
@@ -93,7 +96,8 @@
         }, {
             name: '图文管理',
             href: '图文管理-全部.html',
-            iconClass: 'iconfont icon-tuwen'
+            iconClass: 'iconfont icon-tuwen',
+            active: true
         }];
         var i = 0,
             item,
