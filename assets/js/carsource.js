@@ -44,7 +44,7 @@ $(function() {
             $tr = $this.closest('tr'),
             id = $tr.attr('data-id');
         del(id, function() {
-            $tr.remove();
+            location.href = location.href;
         });
     });
     /**
@@ -65,11 +65,11 @@ $(function() {
         $searchForm.submit();
     });
     /**
-     * 详情
+     * 详情,审核通过data-href到不同页面
      * @param  {[type]} 
      * @return {[type]}   [description]
      */
-    $('.J_detail').on('click', function() {
+    $('.J_detail,.J_archive').on('click', function() {
         var $this = $(this),
             href = $this.attr('data-href'),
             id = $this.closest('tr').attr('data-id');
@@ -77,31 +77,4 @@ $(function() {
             location.href = href + '?id=' + id;
         }
     });
-    /**
-     * 详情
-     * @param  {[type]} 
-     * @return {[type]}   [description]
-     */
-    $('.J_detail').on('click', function() {
-        var $this = $(this),
-            href = $this.attr('data-href'),
-            id = $this.closest('tr').attr('data-id');
-        if (href && id) {
-            location.href = href + '?id=' + id;
-        }
-    });
-    /**
-     * 审核
-     * @param  {[type]} 
-     * @return {[type]}   [description]
-     */
-    $('.J_archive').on('click', function() {
-        var $this = $(this),
-            href = $this.attr('data-href'),
-            id = $this.closest('tr').attr('data-id');
-        if (href && id) {
-            location.href = href + '?id=' + id;
-        }
-    });
-
 });

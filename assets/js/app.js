@@ -633,10 +633,14 @@
             removeTimeout: 0,
             swf: 'assets/js/uploadify/uploadify.swf',
             uploader: '',
+            defaultID: '',
+            defaultPath: '',
             queueID: '01234556789',
-            uploaderFormat: {
-                imageId: 'id',
-                imagePath: 'src'
+            fieldFormat: { //删除图片id字段名称和路径名称
+                uploadedImageId: 'id', //上传成功后台返回的图片ID字段名称
+                uploadedImagePath: 'src', //上传成功后台返回的图片路径字段名称
+                formImageId: 'id', //提交form表单的图片ID字段名称
+                formImagePath: 'src' //提交form表单的图片路径字段名称
             }
 
         };
@@ -648,8 +652,20 @@
             IMAGEINDEX = 1;
         var ImageUploadify = function(container, options) {
             this.$container = $(container);
-            this.options = $.extend({}, defaultOptions, options);
-            this.uploaderFormat = $.extend({}, defaultOptions.uploaderFormat, options && options.uploaderFormat);
+
+            var formValue = {},
+                formIdValue = this.$container.attr('data-idvalue'),
+                formPathValue = this.$container.attr('data-pathvalue');
+            formIdValue !== '' && (formValue.defaultID = formIdValue);
+            formPathValue !== '' && (formValue.defaultPath = formPathValue);
+
+            this.options = $.extend({}, defaultOptions, formValue, options);
+            var formField = {},
+                formIdField = this.$container.attr('data-idname'),
+                formPathField = this.$container.attr('data-pathname');
+            formIdField !== '' && (formField.formImageId = formIdField);
+            formPathField !== '' && (formField.formImagePath = formPathField);
+            this.fieldFormat = $.extend({}, defaultOptions.fieldFormat, formField, options && options.fieldFormat);
             this.uploadStatus = UPLOADSTATUS.UPLOADED;
             this._init();
         };
@@ -657,9 +673,10 @@
             _init: function() {
                 var self = this;
                 ++IMAGEINDEX;
-                var $innerHtml = $('<div><input type="hidden" name="' + this.$container.attr('name') + '"/><input type="file" id="' + IMAGEID + IMAGEINDEX + '" /><div class="image-uploadify-preview"></div></div>'),
+                var $innerHtml = $('<div><input type="hidden" name="' + this.fieldFormat.formImageId + '"/><input type="hidden" name="' + this.fieldFormat.formImagePath + '"/><input type="file" id="' + IMAGEID + IMAGEINDEX + '" /><div class="image-uploadify-preview"></div></div>'),
                     $uploadify = this.$uploadify = $('[type="file"]', $innerHtml),
-                    $hidden = this.$hidden = $('[type="hidden"]', $innerHtml),
+                    $hiddenid = this.$hiddenid = $('[type="hidden"]', $innerHtml).eq(0),
+                    $hiddenpath = this.$hiddenpath = $('[type="hidden"]', $innerHtml).eq(1),
                     $preview = this.$preview = $('.image-uploadify-preview', $innerHtml);
                 this.$container.html($innerHtml);
                 $preview.on('click', function(e) {
@@ -699,16 +716,17 @@
                         data = JSON.parse(data);
                         if (response && data) {
                             //更新图像及ID
-                            var dId = data[self.uploaderFormat.imageId],
-                                dPath = data[self.uploaderFormat.imagePath];
+                            var dId = data[self.fieldFormat.uploadedImageId],
+                                dPath = data[self.fieldFormat.uploadedImagePath];
                             $preview.html('<img width="' + self.options.previewWidth + '" height="' + self.options.previewHeight + '" src="' + dPath + '" alt=""/><a href="javascript:void(0)" class="J_close am-close" title="删除">&times;</a>').show();
-                            this.imageId = dId;
-                            this.imagePath = dPath;
-                            $hidden.val(dId);
+                            self.imageId = dId;
+                            self.imagePath = dPath;
+                            $hiddenid.val(dId);
+                            $hiddenpath.val(dPath);
                         }
                     }
                 });
-                this.set(this.$container.attr('data-imageid'), this.$container.attr('data-imagepath'));
+                this.set(this.options.defaultID, this.options.defaultPath);
             },
             set: function(imageid, imagePath) {
                 if (!imageid || !imagePath) {
@@ -718,7 +736,8 @@
                 this.uploadStatus === UPLOADSTATUS.UPLOADING && this.$uploadify.uploadify('stop');
                 this.imageId = imageid;
                 this.imagePath = imagePath;
-                this.$hidden.val(imageid);
+                this.$hiddenid.val(imageid);
+                this.$hiddenpath.val(imagePath);
                 this.$preview.html('<img width="' + this.options.previewWidth + '" height="' + this.options.previewHeight + '"  src="' + imagePath + '" alt=""/><a href="javascript:void(0)" class="J_close am-close" title="删除">&times;</a>').show();
                 return this;
             },
@@ -726,14 +745,15 @@
                 this.uploadStatus === UPLOADSTATUS.UPLOADING && this.$uploadify.uploadify('stop');
                 this.imageId = '';
                 this.imagePath = '';
-                this.$hidden.val('');
+                this.$hiddenid.val('');
+                this.$hiddenpath.val('');
                 this.$preview.hide();
                 return this;
             },
             get: function() {
                 var result = {};
-                result[this.uploaderFormat.imageId] = this.imageId;
-                result[this.uploaderFormat.imagePath] = this.imagePath;
+                result[this.fieldFormat.formImageId] = this.imageId;
+                result[this.fieldFormat.formImagePath] = this.imagePath;
                 this.uploadStatus === UPLOADSTATUS.UPLOADING && (result.errorMessage = '正在上传，请稍后。。。');
                 return result;
             }

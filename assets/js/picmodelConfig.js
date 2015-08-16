@@ -1,5 +1,39 @@
 $(function() {
-    var imageUploadify = $('.J_upload_container').imageUploadify(),
+    /**
+     *
+     * 图片默认参数，可传入自定义{
+            buttonClass: '',
+            width: 120,
+            height: 32,
+            previewWidth: 100,//预览图片宽
+            previewHeight: 80,//预览图片高
+            buttonText: '上传图片',
+            fileFormat: '*.gif; *.jpg; *.png; *.jpeg;',
+            uploadLimit: 999,
+            sizeLimit: '5MB',
+            multi: false,
+            removeTimeout: 0,
+            swf: 'assets/js/uploadify/uploadify.swf',
+            uploader: '',
+            queueID: '01234556789',
+            defaultID: '',
+            defaultPath: '',
+            fieldFormat: {   //删除图片id字段名称和路径名称
+                uploadedImageId: 'id',//上传成功后台返回的图片ID字段名称
+                uploadedImagePath: 'src',//上传成功后台返回的图片路径字段名称
+                formImageId:'id',//提交form表单的图片ID字段名称
+                formImagePath:'id'//提交form表单的图片路径字段名称
+            }
+     * @type {[type]}
+     */
+    var imageUploadify = $('.J_upload_container').imageUploadify({
+            previewWidth: 120,
+            previewHeight: 80,
+            fieldFormat: {
+                uploadedImageId: 'yourselfiamgeid',
+                uploadedImagePath: 'yourselfiamgesrc'
+            }
+        }),
         $modal = $('.J_moal'),
         $modalTitle = $('.am-modal-hd span'),
         $submit = $('.J_modal_submit'),
@@ -85,7 +119,7 @@ $(function() {
         $submit.text(EDIT);
         $('.J_modal_name').val($tr.attr('data-name'));
         $('.J_modal_id').val($tr.attr('data-id'));
-        $tr.attr('data-isface') === '1' ? $('.J_isface').attr('checked', 'checked') : $('.J_isface').removeAttr('checked');
+        $('.J_isface')[0].checked = $tr.attr('data-isface') === '1' ? true : false;
         imageUploadify.set($tr.attr('data-imageid'), $tr.attr('data-imagepath'));
         $modal.modal();
     });

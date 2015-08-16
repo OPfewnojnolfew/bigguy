@@ -109,7 +109,7 @@ $(function() {
             $tr = $this.closest('tr'),
             id = $tr.attr('data-id');
         delUsers(id, function() {
-            $tr.remove();
+            location.href = location.href;
         });
     });
     /**
@@ -126,16 +126,6 @@ $(function() {
             location.href = location.href;
         });
     });
-    // $('.J_search_btn').on('click', function() {
-    //     var params = [];
-    //     $params.each(function() {
-    //         var $this = $(this);
-    //         params.push($this.attr('data-key') + '=' + $this.val());
-    //     });
-    //     params = '?' + params.join('&');
-    //     location.href = location.href + params;
-
-    // });
 
     /************************************用户管理-待审核经纪人************************************/
     /**
@@ -152,44 +142,28 @@ $(function() {
         }
     });
     /************************************用户管理-审核经纪人************************************/
-    //审核类型  PASS通过，NOPASS不通过
-    var AUDITTYPE = {
-        PASS: 1,
-        NOPASS: 0
-    };
+    var archiveId = $('.J_archive_id').val(),
+        $archiveForm = $('.J_archive_form'),
+        $archiveStatus = $('.J_archive_status');
     /**
      * 审核合格
      * @param  {[type]} 
      * @return {[type]}   [description]
      */
-    $('.J_pass').on('click', function() {
-        $.post('', {
-            type: AUDITTYPE.PASS
-        }).then(function(res) {
-            if (res == 200) {
-                notify.success('审核成功');
-                location.href = '';
-            } else {
-                notify.success('审核出错');
-            }
-        });
-    });
-    /**
-     * 审核不合格
-     * @param  {[type]} 
-     * @return {[type]}   [description]
-     */
-    $('.J_nopass').on('click', function() {
-        var reasonText = $('.J_reason').val();
-        $.post('', {
-            type: AUDITTYPE.NOPASS,
-            reason: reasonText
-        }).then(function() {
-            if (res == 200) {
-                notify.success('审核成功');
-                location.href = '';
-            } else {
-                notify.success('审核出错');
+    $('.J_pass,.J_nopass').on('click', function() {
+        $archiveStatus.val($(this).attr('data-status'));
+        if (archiveId === '') {
+            notify.warn('用户为空');
+            return;
+        }
+        $archiveForm.ajaxSubmit({
+            success: function(res) {
+                if (res.code == 200) {
+                    notify.success(t + '审核成功');
+                    location.href = '';
+                } else {
+                    notify.warn(t + '审核失败');
+                }
             }
         });
     });
@@ -210,6 +184,11 @@ $(function() {
             $this.siblings('.J_single_startusing').removeClass('am-hide');
         });
     });
+    /**
+     * 单条启用
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_single_startusing').on('click', function() {
         var $this = $(this),
             $tr = $this.closest('tr'),
@@ -220,6 +199,11 @@ $(function() {
             $this.siblings('.J_single_ban').removeClass('am-hide');
         });
     });
+    /**
+     * 详情
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_detail').on('click', function() {
         var $this = $(this),
             href = $this.attr('data-href'),
@@ -228,56 +212,12 @@ $(function() {
             location.href = href + '?id=' + id;
         }
     });
-    /************************************用户管理-已认证经纪人-提供车源************************************/
-    var $selectForm = $('.J_select_form'),
-        $year = $('.J_year'),
-        $month = $('.J_month');
-
-    $year.on('change', function() {
-        $selectForm.submit();
+    /**
+     * 选择年月查询
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $('.J_year,.J_month').on('change', function() {
+        $('.J_select_form').submit();
     });
-    $month.on('change', function() {
-        $selectForm.submit();
-    });
-    /************************************用户管理-已认证经纪人-提供车源************************************/
-    $('.J_edit_user').on('click', function() {
-        var $this = $(this),
-            href = $this.attr('data-href'),
-            id = $this.closest('tr').attr('data-id');
-        if (href && id) {
-            location.href = href + '?id=' + id;
-        }
-    });
-    /************************************用户管理-已认证经纪人-新增编辑管理员************************************/
-    $('.J_user_submit').on('click', function() {
-        var $username = $('#user-name'),
-            $userPass = $('#user-password'),
-            $usertruename = $('#user-truename'),
-            id = $('#user_id').val(),
-            t = id ? '编辑' : '新增',
-            username = $.trim($username.val()),
-            userPass = $.trim($userPass.val()),
-            usertruename = $.trim($usertruename.val());
-        if (!(/^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$/.test(username) && username.length)) {
-            notify.warn('手机号不符合规定！');
-            $username.focus();
-            return false;
-        }
-        if (!(/^[\w]{6,10}$/.test(userPass))) {
-            notify.warn('密码应为6-10字母数字构成');
-            $userPass.focus();
-            return false;
-        }
-        $('.J_user_form').ajaxSubmit({
-            success: function(res) {
-                if (res.code == 200) {
-                    notify.success(t + '成功');
-                    location.href = '';
-                } else {
-                    notify.warn(t + '失败');
-                }
-            }
-        });
-    });
-
 });

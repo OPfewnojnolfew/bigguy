@@ -122,11 +122,14 @@
                         <div class="am-u-sm-8 am-u-md-10"><img src="" width="250" height="170" class="am-radius"></div>
                     </div>
                     <div class="am-panel am-panel-default am-padding-lg am-margin-top">
-                        <form class="am-form am-form-horizontal" onsubmit="return false;">
-                            <textarea class="J_reason" rows="3" placeholder="不合格时，请在此处说明原因"></textarea>
+                        <form method="post" action="" class="J_archive_form am-form am-form-horizontal" onsubmit="return false;">
+                            <input type="hidden" name="id" value="1" class="J_archive_id" />
+                            <input type="hidden" name="status" value=""  class="J_archive_status">
+                            <textarea class="J_reason" name="reason" rows="3" placeholder="不合格时，请在此处说明原因"></textarea>
                             <div class="am-text-center am-margin-top">
-                                <button type="button" class="J_pass am-btn am-btn-success am-radius"><i class="am-icon-check"></i> 合格</button>
-                                <button type="button" class="J_nopass am-btn am-btn-warning am-radius"><i class="am-icon-close"></i> 不合格</button>
+                                <!--data-status 为传入后台的值-->
+                                <button data-status="1" type="button" class="J_pass am-btn am-btn-success am-radius"><i class="am-icon-check"></i> 合格</button>
+                                <button data-status="0" type="button" class="J_nopass am-btn am-btn-warning am-radius"><i class="am-icon-close"></i> 不合格</button>
                             </div>
                         </form>
                     </div>

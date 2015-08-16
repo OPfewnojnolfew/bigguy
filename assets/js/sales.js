@@ -29,6 +29,11 @@ $(function() {
             onCancel: function() {}
         });
     };
+    /**
+     * 初始化地区选择插件
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_geo').geo({
         checked: function(a, b) {
             $searchForm.submit();
@@ -61,7 +66,25 @@ $(function() {
             location.href = location.href;
         });
     });
+    /**
+     * 提交表单
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
     $('.J_select').on('change', function() {
         $searchForm.submit();
+    });
+    /**
+     * 详情
+     * @param  {[type]} 
+     * @return {[type]}   [description]
+     */
+    $('.J_detail').on('click', function() {
+        var $this = $(this),
+            href = $this.attr('data-href'),
+            id = $this.closest('tr').attr('data-id');
+        if (href && id) {
+            location.href = href + '?id=' + id;
+        }
     });
 });

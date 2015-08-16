@@ -114,6 +114,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!--data-imageid图片id，data-imagepath图片路劲-->
                             <tr data-id="1" data-name="xxxx" data-imageid="xxx" data-imagepath="xxx" data-ishot="1">
                                 <td class="am-text-middle">
                                     <input type="checkbox" />
@@ -124,7 +125,7 @@
                                 <td class="am-text-middle">
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
-                                            <button data-href="设置型号页面" class="J_set_subbranch am-btn am-btn-default am-btn-xs"><span class="am-icon-navicon"></span> 设置型号</button>
+                                            <button data-href="配置管理-品牌配置-设置型号.html" class="J_set_subbranch am-btn am-btn-default am-btn-xs"><span class="am-icon-navicon"></span> 设置型号</button>
                                             <button data-href="" class="J_branch_edit am-btn am-btn-default am-btn-xs am-text-primary"><span class="am-icon-edit"></span> 编辑</button>
                                             <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
                                         </div>
@@ -177,7 +178,8 @@
                                 <div class="am-margin">
                                     <input type="text" name="branchname" class="J_branch_name" placeholder="请输入品牌名称">
                                 </div>
-                                <div class="J_upload_container am-margin" name="brachimg">
+                                <!--data-idname传入后台的图片id，data-pathname传入后台的图片路径-->
+                                <div class="J_upload_container am-margin" data-idname="imageid" data-pathname="imagepath">
                                 </div>
                                 <div class="am-margin">
                                     <div class="am-checkbox am-text-left">

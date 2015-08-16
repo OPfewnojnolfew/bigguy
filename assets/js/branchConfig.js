@@ -1,5 +1,39 @@
 $(function() {
-    var imageUploadify = $('.J_upload_container').imageUploadify(),
+    /**
+     *
+     * 图片默认参数，可传入自定义{
+            buttonClass: '',
+            width: 120,
+            height: 32,
+            previewWidth: 100,//预览图片宽
+            previewHeight: 80,//预览图片高
+            buttonText: '上传图片',
+            fileFormat: '*.gif; *.jpg; *.png; *.jpeg;',
+            uploadLimit: 999,
+            sizeLimit: '5MB',
+            multi: false,
+            removeTimeout: 0,
+            swf: 'assets/js/uploadify/uploadify.swf',
+            uploader: '',
+            queueID: '01234556789',
+            defaultID: '',
+            defaultPath: '',
+            fieldFormat: {   //删除图片id字段名称和路径名称
+                uploadedImageId: 'id',//上传成功后台返回的图片ID字段名称
+                uploadedImagePath: 'src',//上传成功后台返回的图片路径字段名称
+                formImageId:'id',//提交form表单的图片ID字段名称
+                formImagePath:'id'//提交form表单的图片路径字段名称
+            }
+     * @type {[type]}
+     */
+    var imageUploadify = $('.J_upload_container').imageUploadify({
+            previewWidth: 120,
+            previewHeight: 80,
+            fieldFormat: {
+                uploadedImageId: 'yourselfiamgeid',
+                uploadedImagePath: 'yourselfiamgesrc'
+            }
+        }),
         $branchModal = $('.J_branch_moal'),
         $branchModalTitle = $('.am-modal-hd span'),
         $branchSubmit = $('.J_branch_submit'),
@@ -85,7 +119,7 @@ $(function() {
         $branchSubmit.text(EDIT);
         $('.J_branch_name').val($tr.attr('data-name'));
         $('.J_branch_id').val($tr.attr('data-id'));
-        $tr.attr('data-ishot') === '1' ? $('.J_branch_ishot').attr('checked', 'checked') : $('.J_branch_ishot').removeAttr('checked');
+        $('.J_branch_ishot')[0].checked = $tr.attr('data-ishot') === '1' ? true : false;
         imageUploadify.set($tr.attr('data-imageid'), $tr.attr('data-imagepath'));
         $branchModal.modal();
     });
