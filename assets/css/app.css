@@ -192,6 +192,7 @@
 .bb-table-disabled {
     background: #f9f9f9;
     color: #999;
+    text-align: right;
 }
 
 
