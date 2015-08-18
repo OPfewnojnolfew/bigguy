@@ -38,6 +38,10 @@
     content: "\e612";
 }
 
+.icon-jixieshebeijizhaomingb:before {
+    content: "\e615";
+}
+
 .icon-xiaoshouguanli01:before {
     content: "\e600";
 }
@@ -52,6 +56,14 @@
 
 .icon-shenhechenggong:before {
     content: "\e601";
+}
+
+.icon-03jixieqiugou:before {
+    content: "\e616";
+}
+
+.icon-01jixiegongying:before {
+    content: "\e614";
 }
 
 .icon-model:before {
@@ -92,6 +104,10 @@
 
 .icon-yonghuguanli:before {
     content: "\e605";
+}
+
+.icon-kongbaiwu:before {
+    content: "\e613";
 }
 
 .notify {
