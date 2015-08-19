@@ -195,6 +195,13 @@
     text-align: right;
 }
 
+.bb-nodata {
+    margin: 50px auto;
+    width: 133px;
+    height: 125px;
+    background: url(../img/nodata.png) center center no-repeat;
+}
+
 
 /*.bb-geo-container select {
     display: inline-block;
