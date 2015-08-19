@@ -244,3 +244,8 @@
 .toggle-off:hover {
     background-position: -36px 0;
 }
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
