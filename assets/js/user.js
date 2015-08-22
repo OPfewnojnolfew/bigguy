@@ -159,10 +159,10 @@ $(function() {
         $archiveForm.ajaxSubmit({
             success: function(res) {
                 if (res.code == 200) {
-                    notify.success(t + '审核成功');
+                    notify.success('审核成功');
                     location.href = '';
                 } else {
-                    notify.warn(t + '审核失败');
+                    notify.warn('审核失败');
                 }
             }
         });

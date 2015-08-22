@@ -24,21 +24,16 @@
   以获得更好的体验！</p>
 <![endif]-->
     <header class="am-topbar admin-header">
-        <div class="am-topbar-brand">
-            <strong>大家伙二手工程机械平台</strong><small> 后台管理</small>
+        <div class="admin-logo"></div>
+        <div class="admin-header-title">
+            大家伙二手工程机械平台
         </div>
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
         <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-                <li class="am-dropdown" data-am-dropdown>
-                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                        <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
-                    </a>
-                    <ul class="am-dropdown-content">
-                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-                    </ul>
-                </li>
-                <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+                <li class="admin-header-user"><a href="javascript:;"><span class="iconfont icon-person"></span> <span>15958093225</span></a></li>
+                <li><span class="split"></span></li>
+                <li class="admin-header-exit am-hide-sm-only"><a href="javascript:;"><span class=""></span> <span class="admin-fullText">退出</span></a></li>
             </ul>
         </div>
     </header>
@@ -61,7 +56,7 @@
                     <li class="admin-parent"><a class="am-cf" data-am-collapse="{target: '#collapse-nav-2'}"><span class="iconfont icon-yonghuguanli"></span> 用户管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                         <ul class="am-list admin-sidebar-sub am-collapse am-in " id="collapse-nav-2">
                             <li><a href="用户管理-个人用户.html"><span class="iconfont icon-person"></span> 个人用户</a></li>
-                            <li><a href="用户管理-未认证经纪人.html"><span class="iconfont icon-weishimingrenzheng"></span> 未认证经纪人</a></li>
+                            <li><a class="active" href="用户管理-未认证经纪人.html"><span class="iconfont icon-weishimingrenzheng"></span> 未认证经纪人</a></li>
                             <li><a href="用户管理-已认证经纪人.html"><span class="iconfont icon-renzheng"></span> 已认证经纪人</a></li>
                             <li><a href="用户管理-待审核经纪人.html"><span class="iconfont icon-shenhe"></span> 待审核经纪人</a></li>
                             <li><a href="用户管理-管理员.html"><span class="iconfont icon-guanliyuan"></span> 管理员</a></li>
@@ -80,7 +75,11 @@
                             <li><a href="配置管理-奖励配置.html"><span class="iconfont icon-jiangli"></span> 奖励配置</a></li>
                         </ul>
                     </li>
-                    <li><a href="图文管理-全部.html"><span class="iconfont icon-tuwen"></span>图文管理</a></li>
+                                        <li class="admin-parent"><a class="am-cf" data-am-collapse="{target: '#collapse-nav-5'}"><span class="iconfont icon-tuwen"></span> 图文管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                        <ul class="am-list admin-sidebar-sub am-collapse" id="collapse-nav-5">
+                            <li><a class="" href="图文管理-全部.html"><span class="iconfont icon-tuwen"></span> 全部图文</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -89,7 +88,7 @@
         <div class="admin-content">
             <div class="am-g am-padding-top am-padding-bottom">
                 <div class="am-u-md-8 am-u-sm-12">
-                    <strong class="am-text-primary am-text-lg">用户管理</strong> / <small>未认证经纪人</small>
+                    <strong class="am-text-lg">用户管理</strong> / <small class="am-text-primary">未认证经纪人</small>
                 </div>
                 <div class="am-u-md-4 am-u-sm-12 ">
                     <form class="am-form" method="get" action="">
@@ -128,7 +127,7 @@
                                 <td>111111</td>
                                 <td>ACE</td>
                                 <td class="am-hide-sm-only table-datetime">2014-12-12 12:12:12</td>
-                                <td>
+                                <td width="100">
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
                                             <button class="J_single_del am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>

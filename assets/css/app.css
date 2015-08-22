@@ -190,8 +190,8 @@
 }
 
 .bb-table-disabled {
-    background: #f9f9f9;
-    color: #999;
+    background: rgb(247, 247, 247);
+    color: rgb(82, 82, 82);
     text-align: right;
 }
 
@@ -255,4 +255,30 @@
 hr {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.bb-form-row {
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.bb-form-row .bb-form-item {
+    float: left;
+    margin-right: 30px;
+}
+
+.bb-form-row .bb-form-item>label {
+    float: left;
+    font-weight: 400;
+    margin-top: 7px;
+}
+
+.bb-form-row .bb-form-item>input {
+    float: left;
+    width: 160px
+}
+
+.bb-form-row .bb-form-item>.bb-input-group {
+    float: left;
+    width: 160px
 }

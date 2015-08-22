@@ -116,6 +116,7 @@ $(function() {
             $rewardDes = $('#reward-des'),
             $rewardRule = $('#reward-rule'),
             id = $rewardId.val(),
+            t = id ? '编辑' : '添加',
             name = $.trim($rewardName.val()),
             money = $.trim($rewardMoney.val()),
             des = $.trim($rewardDes.val()),

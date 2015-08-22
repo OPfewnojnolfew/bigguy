@@ -49,15 +49,15 @@
                         </ul>
                     </li>
                     <li class="admin-parent"><a class="am-cf" data-am-collapse="{target: '#collapse-nav-1'}"><span class="iconfont icon-xiaoshouguanli01"></span> 销售管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                        <ul class="am-list admin-sidebar-sub am-collapse" id="collapse-nav-1">
-                            <li><a href="销售管理-全部已售车.html"><span class="iconfont icon-03jixieqiugou"></span> 已售车</a></li>
+                        <ul class="am-list admin-sidebar-sub am-collapse am-in " id="collapse-nav-1">
+                            <li><a class="active" class="am-text-primary" href="销售管理-全部已售车.html"><span class="iconfont icon-03jixieqiugou"></span> 已售车</a></li>
                         </ul>
                     </li>
                     <li class="admin-parent"><a class="am-cf" data-am-collapse="{target: '#collapse-nav-2'}"><span class="iconfont icon-yonghuguanli"></span> 用户管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                        <ul class="am-list admin-sidebar-sub am-collapse am-in " id="collapse-nav-2">
+                        <ul class="am-list admin-sidebar-sub am-collapse" id="collapse-nav-2">
                             <li><a href="用户管理-个人用户.html"><span class="iconfont icon-person"></span> 个人用户</a></li>
                             <li><a href="用户管理-未认证经纪人.html"><span class="iconfont icon-weishimingrenzheng"></span> 未认证经纪人</a></li>
-                            <li><a class="active" href="用户管理-已认证经纪人.html"><span class="iconfont icon-renzheng"></span> 已认证经纪人</a></li>
+                            <li><a href="用户管理-已认证经纪人.html"><span class="iconfont icon-renzheng"></span> 已认证经纪人</a></li>
                             <li><a href="用户管理-待审核经纪人.html"><span class="iconfont icon-shenhe"></span> 待审核经纪人</a></li>
                             <li><a href="用户管理-管理员.html"><span class="iconfont icon-guanliyuan"></span> 管理员</a></li>
                         </ul>
@@ -87,90 +87,123 @@
         <!-- content start -->
         <div class="admin-content">
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-lg">用户管理</strong> / <strong class="am-text-lg">已认证经纪人</strong> / <small class="am-text-primary">帮卖</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-lg">销售管理</strong> / <strong class="am-text-lg">已售车</strong> / <small class="am-text-primary">详情</small></div>
             </div>
-            <div class="am-g">
-                <div class="am-u-md-3 am-u-md-offset-9 am-u-sm-12">
-                    <form class="J_select_form am-form am-form-inline" role="form" method="get" action="">
-                        <input type="hidden" class="J_param" name="pageIndex" value="0" />
-                        <input type="hidden" class="J_param" name="pageSize" value="20" />
-                        <input type="hidden" class="J_param" name="type" value="1" />
-                        <ul class="am-avg-md-2 am-avg-sm-2 bb-select">
-                            <li>
-                                <select class="J_year am-input-sm" name="year">
-                                    <option value="2014">2014年</option>
-                                    <option value="2015" selected>2015年</option>
-                                    <option value="2016">2016年</option>
-                                </select>
-                            </li>
-                            <li>
-                                <select class="J_month  am-input-sm" name="month">
-                                    <option value="1">1月</option>
-                                    <option value="2" selected>2月</option>
-                                    <option value="3">3月</option>
-                                    <option value="4">4月</option>
-                                    <option value="5">5月</option>
-                                    <option value="6">6月</option>
-                                    <option value="7">7月</option>
-                                    <option value="8">8月</option>
-                                    <option value="9">9月</option>
-                                    <option value="10">10月</option>
-                                    <option value="11">11月</option>
-                                    <option value="12">12月</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </form>
+            <div class="am-panel am-panel-default am-margin">
+                <div class="am-panel-hd am-cf">
+                    <div class="am-fl"><strong>现代DH370LC-7</strong></div>
+                    <div class="am-fr am-text-xs">经纪人：<span class="am-margin-right">王老五  18629061234</span>发布时间：<span class="am-margin-right">2015-07-09 12:23:34</span>下架时间：<span class="am-margin-right">2015-07-09 12:23:34</span>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <div class="am-g">
-                <div class="am-u-sm-12">
-                    <table class="am-table am-table-striped am-table-hover table-main">
-                        <thead>
-                            <tr>
-                                <th>工程车</th>
-                                <th>出厂编号</th>
-                                <th class="am-hide-sm-only">发布时间</th>
-                            </tr>
-                        </thead>
+                <div class="am-panel-bd">
+                    <table class="am-table bb-table-main am-table-bordered">
                         <tbody>
-                            <tr data-id="1">
-                                <td>沃尔沃 EC240BLC 挖掘机</td>
+                            <tr>
+                                <td width="115" class="bb-table-disabled">机型：</td>
                                 <td>11111</td>
-                                <td class="am-hide-sm-only table-datetime">2014-12-12 12:12:12</td>
+                                <td width="115" class="bb-table-disabled">工作重量：</td>
+                                <td>11111</td>
                             </tr>
-                            <tr data-id="1">
-                                <td>沃尔沃 EC240BLC 挖掘机</td>
+                            <tr>
+                                <td width="115" class="bb-table-disabled">品牌：</td>
                                 <td>11111</td>
-                                <td class="am-hide-sm-only table-datetime">2014-12-12 12:12:12</td>
+                                <td width="115" class="bb-table-disabled">合格证：</td>
+                                <td>11111</td>
                             </tr>
-                            <tr data-id="1">
-                                <td>沃尔沃 EC240BLC 挖掘机</td>
+                            <tr>
+                                <td width="115" class="bb-table-disabled">设备型号：</td>
                                 <td>11111</td>
-                                <td class="am-hide-sm-only table-datetime">2014-12-12 12:12:12</td>
+                                <td width="115" class="bb-table-disabled">原始发票：</td>
+                                <td>11111</td>
+                            </tr>
+                            <tr>
+                                <td width="115" class="bb-table-disabled">所在地点：</td>
+                                <td>11111</td>
+                                <td width="115" class="bb-table-disabled">出售价格：</td>
+                                <td>11111</td>
+                            </tr>
+                            <tr>
+                                <td width="115" class="bb-table-disabled">出厂时间：</td>
+                                <td>11111</td>
+                                <td width="115" class="bb-table-disabled">帮卖价格：</td>
+                                <td>11111</td>
+                            </tr>
+                            <tr>
+                                <td width="115" class="bb-table-disabled">使用工时：</td>
+                                <td>11111</td>
+                                <td width="115" class="bb-table-disabled">出厂编号： </td>
+                                <td>11111</td>
                             </tr>
                         </tbody>
                     </table>
-                    <hr>
-                    <div class="am-cf">
-                        共 15 条记录
-                        <div class="am-fr">
-                            <ul class="am-pagination">
-                                <li class="am-disabled"><a href="#">«</a></li>
-                                <li class="am-active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">»</a></li>
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-bd">
+                            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+  am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{ pureview: true }">
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                                            <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
+                                            <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" alt="不要太担心 只因为我相信" />
+                                            <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                        </a>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- content end -->
+    </div>
+    <!-- content end -->
     </div>
     <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
     <footer>

@@ -23,22 +23,17 @@
 <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
   以获得更好的体验！</p>
 <![endif]-->
-    <header class="am-topbar admin-header">
-        <div class="am-topbar-brand">
-            <strong>大家伙二手工程机械平台</strong><small> 后台管理</small>
+     <header class="am-topbar admin-header">
+        <div class="admin-logo"></div>
+        <div class="admin-header-title">
+            大家伙二手工程机械平台
         </div>
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
         <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-                <li class="am-dropdown" data-am-dropdown>
-                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                        <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
-                    </a>
-                    <ul class="am-dropdown-content">
-                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-                    </ul>
-                </li>
-                <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+                <li class="admin-header-user"><a href="javascript:;"><span class="iconfont icon-person"></span> <span>15958093225</span></a></li>
+                <li><span class="split"></span></li>
+                <li class="admin-header-exit am-hide-sm-only"><a href="javascript:;"><span class=""></span> <span class="admin-fullText">退出</span></a></li>
             </ul>
         </div>
     </header>
@@ -64,7 +59,7 @@
                             <li><a href="用户管理-未认证经纪人.html"><span class="iconfont icon-weishimingrenzheng"></span> 未认证经纪人</a></li>
                             <li><a href="用户管理-已认证经纪人.html"><span class="iconfont icon-renzheng"></span> 已认证经纪人</a></li>
                             <li><a href="用户管理-待审核经纪人.html"><span class="iconfont icon-shenhe"></span> 待审核经纪人</a></li>
-                            <li><a href="用户管理-管理员.html"><span class="iconfont icon-guanliyuan"></span> 管理员</a></li>
+                            <li><a class="active" href="用户管理-管理员.html"><span class="iconfont icon-guanliyuan"></span> 管理员</a></li>
                         </ul>
                     </li>
                     <li class="admin-parent"><a class="am-cf" data-am-collapse="{target: '#collapse-nav-3'}"><span class="iconfont icon-jiangliguanli"></span> 奖励管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
@@ -80,7 +75,11 @@
                             <li><a href="配置管理-奖励配置.html"><span class="iconfont icon-jiangli"></span> 奖励配置</a></li>
                         </ul>
                     </li>
-                    <li><a href="图文管理-全部.html"><span class="iconfont icon-tuwen"></span>图文管理</a></li>
+                    <li class="admin-parent"><a class="am-cf" data-am-collapse="{target: '#collapse-nav-5'}"><span class="iconfont icon-tuwen"></span> 图文管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                        <ul class="am-list admin-sidebar-sub am-collapse" id="collapse-nav-5">
+                            <li><a class="" href="图文管理-全部.html"><span class="iconfont icon-tuwen"></span> 全部图文</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -88,36 +87,40 @@
         <!-- content start -->
         <div class="admin-content">
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>新增/编辑管理员</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-lg">用户管理</strong> / <strong class="am-text-lg">管理员</strong> / <small class="am-text-primary">新增/编辑管理员</small></div>
             </div>
-            <div class="am-g">
-                <div class="am-u-sm-12 am-u-md-8 am-u-md-push-1">
-                    <form class="J_user_form am-form am-form-horizontal" action="" method="post" onsubmit="return false;">
-                        <input type="hidden" id="user_id" name="id" value="" />
-                        <div class="am-form-group">
-                            <label for="user-name" class="am-u-sm-3 am-form-label">用户名:</label>
-                            <div class="am-u-sm-9">
-                                <input type="text" name="username" id="user-name" placeholder="请填写手机号码">
-                            </div>
+            <div class="am-panel am-panel-default am-margin-left am-margin-right">
+                <div class="am-panel-bd">
+                    <div class="am-g">
+                        <div class="am-u-sm-12 am-u-md-8 am-u-md-push-1">
+                            <form class="J_user_form am-form am-form-horizontal" action="" method="post" onsubmit="return false;">
+                                <input type="hidden" id="user_id" name="id" value="" />
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">用户名:</label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="username" id="user-name" placeholder="请填写手机号码">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="user-password" class="am-u-sm-3 am-form-label">密码:</label>
+                                    <div class="am-u-sm-9">
+                                        <input type="password" name="password" id="user-password" placeholder="6-10位字符">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名:</label>
+                                    <div class="am-u-sm-9">
+                                        <input type="email" name="truename" id="user-truename" placeholder="请填写你的真实姓名">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button" class="J_user_submit am-btn am-btn-primary">新增/编辑</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="am-form-group">
-                            <label for="user-password" class="am-u-sm-3 am-form-label">密码:</label>
-                            <div class="am-u-sm-9">
-                                <input type="password" name="password" id="user-password" placeholder="6-10位字符">
-                            </div>
-                        </div>
-                        <div class="am-form-group">
-                            <label for="user-name" class="am-u-sm-3 am-form-label">姓名:</label>
-                            <div class="am-u-sm-9">
-                                <input type="email" name="truename" id="user-truename" placeholder="请填写你的真实姓名">
-                            </div>
-                        </div>
-                        <div class="am-form-group">
-                            <div class="am-u-sm-9 am-u-sm-push-3">
-                                <button type="button" class="J_user_submit am-btn am-btn-primary">新增/编辑</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,7 +129,7 @@
     <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
     <footer>
         <hr>
-                <p class="am-padding-left">&copy;&nbsp;大家伙二手工程机械平台&nbsp;&nbsp;&nbsp;&nbsp;全程技术支持：
+        <p class="am-padding-left">&copy;&nbsp;大家伙二手工程机械平台&nbsp;&nbsp;&nbsp;&nbsp;全程技术支持：
             <a href="http://yufukeji.com/" target="_blank">渔夫科技</a>
         </p>
     </footer>

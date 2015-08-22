@@ -2,6 +2,10 @@
  * admin.css
  */
 
+body {
+    font-size: 1.4rem;
+}
+
 ul {
     margin-top: 0;
 }
@@ -13,10 +17,54 @@ ul {
 .admin-header {
     font-size: 1.4rem;
     margin-bottom: 0;
+    background: rgb(0, 134, 196);
+    color: #FFF;
+}
+
+.admin-logo {
+    float: left;
+    width: 60px;
+    height: 50px;
+    background: rgb(0, 112, 172);
+}
+
+.admin-header-title {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    padding-left: 20px;
+    font-weight: 700;
+}
+
+.admin-header-list .split {
+    display: inline-block;
+    height: 15px;
+    width: 1px;
+    background-color: #FFF;
+    margin-top: 18px;
 }
 
 .admin-header-list a:hover:after {
     content: none;
+}
+
+.admin-header .admin-header-list {
+    border-left: 1px solid rgb(0, 112, 172);
+}
+
+.admin-header .admin-header-list a {
+    color: #fff;
+}
+
+.admin-header .admin-header-list .admin-header-user a:focus,
+.admin-header .admin-header-list .admin-header-user a:hover {
+    background: rgb(0, 134, 196);
+}
+
+.admin-header .admin-header-list .admin-header-exit a:focus,
+.admin-header .admin-header-list .admin-header-exit a:hover {
+    background: rgb(0, 112, 172);
 }
 
 .admin-main {
@@ -31,7 +79,7 @@ ul {
 }
 
 .admin-sidebar {
-    width: 260px;
+    width: 150px;
     min-height: 100%;
     float: left;
     border-right: 1px solid #cecece;
@@ -42,8 +90,18 @@ ul {
 }
 
 .admin-sidebar-list li a {
+    background: rgb(219, 224, 229);
     color: #5c5c5c;
     padding-left: 24px;
+}
+
+.admin-sidebar-list li li a {
+    background: #fff;
+    padding-left: 35px;
+}
+
+.admin-sidebar-list li li a.active {
+    color: rgb(0, 134, 196);
 }
 
 .admin-sidebar-list li:first-child {
@@ -55,7 +113,7 @@ ul {
     margin-bottom: 0;
     box-shadow: 0 16px 8px -15px #e2e2e2 inset;
     background: #ececec;
-    padding-left: 24px;
+    /*padding-left: 24px;*/
 }
 
 .admin-sidebar-sub li:first-child {
@@ -280,7 +338,7 @@ ul {
 }
 
 .table-datetime {
-    width: 150px;
+    width: 180px;
 }
 
 @media only screen and (max-width: 640px) {

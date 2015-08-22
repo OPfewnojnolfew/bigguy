@@ -14,7 +14,7 @@
         var menuData = [{
             name: '车源管理',
             href: '#',
-            iconClass: 'am-icon-automobile',
+            iconClass: 'iconfont icon-01jixiegongying',
             active: false,
             children: [{
                 name: '已审核车源',
@@ -33,7 +33,7 @@
             children: [{
                 name: '已售车',
                 href: '销售管理-全部已售车.html',
-                iconClass: 'iconfont icon-yishouchanpin'
+                iconClass: 'iconfont icon-03jixieqiugou'
             }]
         }, {
             name: '用户管理',
@@ -73,7 +73,7 @@
             }, {
                 name: '车源奖励',
                 href: '奖励管理-车源奖励.html',
-                iconClass: 'iconfont icon-che'
+                iconClass: 'iconfont icon-jixieshebeijizhaomingb'
             }]
         }, {
             name: '配置管理',
@@ -97,7 +97,13 @@
             name: '图文管理',
             href: '图文管理-全部.html',
             iconClass: 'iconfont icon-tuwen',
-            active: true
+            active: true,
+            children: [{
+                name: '全部图文',
+                href: '图文管理-全部.html',
+                active: true,
+                iconClass: 'iconfont icon-tuwen'
+            }]
         }];
         var i = 0,
             item,
@@ -120,7 +126,7 @@
                 $subul = $('<ul class="am-list admin-sidebar-sub am-collapse' + (item.active ? ' am-in ' : '') + '" id="' + subcollapseName + '">');
                 for (j = 0; j < item.children.length; j++) {
                     subItem = item.children[j];
-                    $subli = $('<li><a href="' + subItem.href + '"><span class="' + subItem.iconClass + '"></span> ' + subItem.name + '</a></li>');
+                    $subli = $('<li><a class="' + (subItem.active ? 'active' : '') + '" href="' + subItem.href + '"><span class="' + subItem.iconClass + '"></span> ' + subItem.name + '</a></li>');
                     $subul.append($subli);
                 }
                 $li.append($a).append($subul);

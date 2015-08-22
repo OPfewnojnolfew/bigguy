@@ -24,21 +24,16 @@
   以获得更好的体验！</p>
 <![endif]-->
     <header class="am-topbar admin-header">
-        <div class="am-topbar-brand">
-            <strong>大家伙二手工程机械平台</strong><small> 后台管理</small>
+        <div class="admin-logo"></div>
+        <div class="admin-header-title">
+            大家伙二手工程机械平台
         </div>
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
         <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-                <li class="am-dropdown" data-am-dropdown>
-                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                        <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
-                    </a>
-                    <ul class="am-dropdown-content">
-                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-                    </ul>
-                </li>
-                <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+                <li class="admin-header-user"><a href="javascript:;"><span class="iconfont icon-person"></span> <span>15958093225</span></a></li>
+                <li><span class="split"></span></li>
+                <li class="admin-header-exit am-hide-sm-only"><a href="javascript:;"><span class=""></span> <span class="admin-fullText">退出</span></a></li>
             </ul>
         </div>
     </header>
@@ -49,7 +44,7 @@
                 <ul class="am-list admin-sidebar-list">
                     <li class="admin-parent"><a class="am-cf" data-am-collapse="{target: '#collapse-nav-0'}"><span class="iconfont icon-01jixiegongying"></span> 车源管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                         <ul class="am-list admin-sidebar-sub am-collapse am-in " id="collapse-nav-0">
-                            <li><a href="车源管理-已审核车源.html"><span class="iconfont icon-shenhechenggong"></span> 已审核车源</a></li>
+                            <li><a class="active" href="车源管理-已审核车源.html"><span class="iconfont icon-shenhechenggong"></span> 已审核车源</a></li>
                             <li><a href="车源管理-待审核车源.html"><span class="iconfont icon-daishenhe"></span> 待审核车源</a></li>
                         </ul>
                     </li>
@@ -80,7 +75,11 @@
                             <li><a href="配置管理-奖励配置.html"><span class="iconfont icon-jiangli"></span> 奖励配置</a></li>
                         </ul>
                     </li>
-                    <li><a href="图文管理-全部.html"><span class="iconfont icon-tuwen"></span>图文管理</a></li>
+                    <li class="admin-parent"><a class="am-cf" data-am-collapse="{target: '#collapse-nav-5'}"><span class="iconfont icon-tuwen"></span> 图文管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                        <ul class="am-list admin-sidebar-sub am-collapse" id="collapse-nav-5">
+                            <li><a class="" href="图文管理-全部.html"><span class="iconfont icon-tuwen"></span> 全部图文</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -88,7 +87,7 @@
         <!-- content start -->
         <div class="admin-content">
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">车源管理</strong> / <small>详情</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-lg">车源管理</strong> / <strong class="am-text-lg">已审核车源</strong> / <small class="am-text-primary">详情</small></div>
             </div>
             <div class="am-panel am-panel-default am-margin">
                 <div class="am-panel-hd am-cf">
@@ -137,65 +136,69 @@
                             </tr>
                         </tbody>
                     </table>
-                    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-bd">
+                            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
   am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{ pureview: true }">
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
-                                    <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
-                                    <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
-                                    <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
-                                    <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" alt="不要太担心 只因为我相信" />
-                                    <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-                                    <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
-                                    <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-                                    <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
-                                    <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-                                    <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
-                                    <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-                                    <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
-                                    <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                                            <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
+                                            <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" alt="不要太担心 只因为我相信" />
+                                            <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -205,7 +208,7 @@
     <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
     <footer>
         <hr>
-                <p class="am-padding-left">&copy;&nbsp;大家伙二手工程机械平台&nbsp;&nbsp;&nbsp;&nbsp;全程技术支持：
+        <p class="am-padding-left">&copy;&nbsp;大家伙二手工程机械平台&nbsp;&nbsp;&nbsp;&nbsp;全程技术支持：
             <a href="http://yufukeji.com/" target="_blank">渔夫科技</a>
         </p>
     </footer>
