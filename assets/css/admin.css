@@ -41,10 +41,10 @@ ul {
 
 .admin-header-list .split {
     display: inline-block;
-    height: 15px;
+    height: 12px;
     width: 1px;
     background-color: #FFF;
-    margin-top: 18px;
+    margin-top: 19px;
 }
 
 .admin-header-list a:hover:after {
