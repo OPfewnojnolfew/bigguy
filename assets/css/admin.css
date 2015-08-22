@@ -23,18 +23,20 @@ ul {
 
 .admin-logo {
     float: left;
-    width: 60px;
-    height: 50px;
-    background: rgb(0, 112, 172);
 }
-
-.admin-header-title {
+.admin-logo .logo{
     float: left;
+    background: rgb(0, 112, 172);
+    width: 60px;
+    height: 50px
+}
+.admin-logo .admin-header-title {
     height: 50px;
     line-height: 50px;
     font-size: 14px;
     padding-left: 20px;
     font-weight: 700;
+    color: #fff
 }
 
 .admin-header-list .split {

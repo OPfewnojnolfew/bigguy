@@ -282,3 +282,6 @@ hr {
     float: left;
     width: 160px
 }
+.am-table>tbody>tr>td{
+    padding: 2.1rem .7rem;
+}
