@@ -735,7 +735,7 @@
                 this.set(this.options.defaultID, this.options.defaultPath);
             },
             set: function(imageid, imagePath) {
-                if (!imageid || !imagePath) {
+                if (!imageid && !imagePath) {
                     this.reset();
                     return;
                 }
