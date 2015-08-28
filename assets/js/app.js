@@ -645,8 +645,8 @@
             fieldFormat: { //删除图片id字段名称和路径名称
                 uploadedImageId: 'id', //上传成功后台返回的图片ID字段名称
                 uploadedImagePath: 'src', //上传成功后台返回的图片路径字段名称
-                formImageId: 'id', //提交form表单的图片ID字段名称
-                formImagePath: 'src' //提交form表单的图片路径字段名称
+                formImageId: '', //提交form表单的图片ID字段名称
+                formImagePath: '' //提交form表单的图片路径字段名称
             }
 
         };
@@ -662,15 +662,15 @@
             var formValue = {},
                 formIdValue = this.$container.attr('data-idvalue'),
                 formPathValue = this.$container.attr('data-pathvalue');
-            formIdValue !== '' && (formValue.defaultID = formIdValue);
-            formPathValue !== '' && (formValue.defaultPath = formPathValue);
+            formIdValue && (formValue.defaultID = formIdValue);
+            formPathValue && (formValue.defaultPath = formPathValue);
 
             this.options = $.extend({}, defaultOptions, formValue, options);
             var formField = {},
                 formIdField = this.$container.attr('data-idname'),
                 formPathField = this.$container.attr('data-pathname');
-            formIdField !== '' && (formField.formImageId = formIdField);
-            formPathField !== '' && (formField.formImagePath = formPathField);
+            formIdField && (formField.formImageId = formIdField);
+            formPathField && (formField.formImagePath = formPathField);
             this.fieldFormat = $.extend({}, defaultOptions.fieldFormat, formField, options && options.fieldFormat);
             this.uploadStatus = UPLOADSTATUS.UPLOADED;
             this._init();

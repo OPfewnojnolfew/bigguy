@@ -24,12 +24,14 @@ ul {
 .admin-logo {
     float: left;
 }
-.admin-logo .logo{
+
+.admin-logo .logo {
     float: left;
     background: rgb(0, 112, 172);
     width: 60px;
     height: 50px
 }
+
 .admin-logo .admin-header-title {
     height: 50px;
     line-height: 50px;
@@ -239,6 +241,7 @@ ul {
         position: static;
         width: auto;
         background: none;
+        overflow: hidden;
         -webkit-transform: translate3d(0, 0, 0);
         -ms-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -254,6 +257,7 @@ ul {
     }
     .admin-offcanvas-bar {
         background: #f3f3f3;
+        overflow: hidden;
     }
     .admin-offcanvas-bar:after {
         background: #BABABA;
